@@ -1,8 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
+export type ActionFolder = {
+  setName:string,
+  actions:string[]
+}
+
 export type ActionSets = {
-    sets:string[],
+    sets:ActionFolder[],
     actions:string[]
 }
 
@@ -15,14 +20,18 @@ const initialState:ActionState = {
     sets: [],
     actions: []
   }
-}
+};
 
 const actionSlice = createSlice({
   name: 'actions',
   initialState,
   reducers: {
     loadActions: (state, action:PayloadAction<ActionSets>) => {
-      state.value = action.payload;
+      console.log(action.payload);
+      state.value = { ...action.payload };
+    },
+    setAction: (state, action:PayloadAction<string[]>) => {
+      state.value.actions = [...action.payload];
     }
   }
 });

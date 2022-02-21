@@ -15,7 +15,7 @@ const MainSwitch = () => {
         <StdCheckBox checked={dispatchTrigger} func={handleCheckBox} />
         <CommonTitle >Dispatch action or script through a registered event</CommonTitle>
       </SwitchContainer>
-  )
-}
+  );
+};
 
 export default MainSwitch;

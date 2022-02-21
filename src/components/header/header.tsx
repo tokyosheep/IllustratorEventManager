@@ -16,7 +16,7 @@ const Header = () => {
       <HeaderContainer>
           <Title>Script Event Manager Illustrator</Title>
       </HeaderContainer>
-  )
+  );
 };
 
 export default Header;

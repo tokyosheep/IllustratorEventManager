@@ -4,7 +4,7 @@ import { CenterPlace } from '../../styles/mixin';
 import { darken } from 'polished';
 
 const StdButtonBase = styled.button<{color:string}>`
-    width: 110px;
+    width: 120px;
     height: 25px;
     position: relative;
     border-radius: 5px;
@@ -23,8 +23,9 @@ const StdButtonTitle = styled.span`
     display: block;
     ${CenterPlace};
     color: #fff;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 300;
+    margin: 0;
 `;
 
 type StdButtonProps = {
@@ -38,5 +39,5 @@ export const StdButtton:FC<StdButtonProps> = ({ name, func }) => {
       <StdButtonBase color={theme.darkGray} onClick={func}>
           <StdButtonTitle>{name}</StdButtonTitle>
       </StdButtonBase>
-  )
-}
+  );
+};

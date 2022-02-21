@@ -6,7 +6,7 @@ const { RegisteredContainer } = MainContainer;
 const RegisteredList = () => {
   return (
       <RegisteredContainer></RegisteredContainer>
-  )
-}
+  );
+};
 
 export default RegisteredList;

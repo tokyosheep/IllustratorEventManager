@@ -4,9 +4,6 @@ const path = require('path');
 module.exports = {
   target: 'nwjs',
   entry: './src/main.tsx',
-  externals: {
-    fsevents: "require('fsevents')"
-  },
   output: {
     publicPath: '/dist/', // 重要更新を監視するために
     path: path.resolve(__dirname, 'dist'),

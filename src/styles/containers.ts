@@ -5,8 +5,10 @@ export const MainContainer = {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 35px 40px 120px ${(400 - (25 + 40 + 120))}px;
-    grid-template-rows: 420px 180px;
+    padding: 10px;
+    box-sizing: border-box;
+    grid-template-rows: 35px 40px 120px minmax(170px, 1fr);
+    grid-template-columns: minmax(300px, 1fr) 180px;
     grid-template-areas:
     'header header'
     'switchArea switchArea'
@@ -20,7 +22,8 @@ export const MainContainer = {
   `,
   SwitchContainer: styled.div`
     grid-area: switchArea;
-    display: grid;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
   `,
   RegisteredContainer: styled.div`
@@ -31,9 +34,11 @@ export const MainContainer = {
   RegisterFormContainer: styled.main`
     grid-area:registerForm;
     border: 1px solid #999;
+    z-index: 1;
   `,
   NavButtonContainer: styled.nav`
     grid-area: navButtons;
     padding: 10px;
+    padding-top: 0px;
   `
 };

@@ -7,7 +7,7 @@ interface TriggerState {
 
 const initialState:TriggerState = {
   value: false
-}
+};
 
 const triggerSlice = createSlice({
   name: 'trigger',

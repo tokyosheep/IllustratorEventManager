@@ -33,7 +33,7 @@ declare module 'styled-components' {
 ReactDOM.render(
     <ThemeProvider theme={ColorTheme}>
         <Provider store={store}>
-            <GlobalStyle bg={ColorTheme.darkGray} />
+            <GlobalStyle bg={ColorTheme.gray} />
             <Layout />
         </Provider>
     </ ThemeProvider >
