@@ -3,7 +3,7 @@ import { selectActionSet } from '../redux/features/registered/registerFormSlice'
 import { loadActions } from '../redux/features/actions/actionSlice';
 import { init } from '../fileSystem/init';
 import { getActionsFromJSX } from '../fileSystem/getAction';
-import { getScripts } from '../fileSystem/loadScripts';
+import { getScripts, loadInitJsx } from '../fileSystem/loadScripts';
 import Header from '../components/header/header';
 import MainSwitch from '../components/mainSwitch/mainSwitch';
 import RegisteredList from '../components/registeredArea/registeredList';
@@ -18,6 +18,7 @@ const Layout = () => {
   useMemo(() => {
     init();
     (async () => {
+      await loadInitJsx();
       await getScripts();
       const actionObj = await getActionsFromJSX();
       if (!actionObj) return;

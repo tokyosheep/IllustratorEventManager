@@ -12,6 +12,7 @@ const ScriptButtonWrapper = styled.div`
 
 const ScriptWrapper = () => {
   const dispatch = useAppDispatch();
+  const eventFlag = useAppSelector(state => state.dispatchTrigger.value);
   const scripts = useAppSelector(state => state.scripts.value);
   const loadScripts = useCallback(() => {
     const r = getScriptFromDialog();
@@ -24,8 +25,8 @@ const ScriptWrapper = () => {
   }, [scripts]);
   return (
       <ScriptButtonWrapper>
-          <StdButtton name='load script' func={loadScripts} />
-          <StdButtton name='reset script' func={removeAllScripts} />
+          <StdButtton disabled={eventFlag} name='load script' func={loadScripts} />
+          <StdButtton disabled={eventFlag} name='reset script' func={removeAllScripts} />
       </ScriptButtonWrapper>
   )
 }

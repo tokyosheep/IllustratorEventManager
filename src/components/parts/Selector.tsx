@@ -1,5 +1,5 @@
-import React, { FC, useState } from 'react';
-import { YAxe } from '../../styles/mixin';
+import React, { FC, useState, useMemo } from 'react';
+import { YAxe, scrollStyle } from '../../styles/mixin';
 import { ScriptObj } from '../../redux/features/scripts/scriptSlice';
 import styled from 'styled-components';
 
@@ -12,16 +12,18 @@ const SelectorBase = styled.label<{width:number}>`
     background: #121212;
     border: 1px solid #707070;
     cursor:pointer;
+    overflow: hidden;
 `;
 
-const SelectorValue = styled.span`
-    color: #fff;
-    font-size: 12px;
+const SelectorValue = styled.span<{disabled:boolean}>`
+    color: ${props => props.disabled ? '#888' : '#fff'};
+    font-size: 11px;
     font-weight: 300;
     ${YAxe};
     left: 20px;
     z-index: 3;
     cursor:pointer;
+    white-space: nowrap;
 `;
 
 const OptionsWrapper = styled.ul<{left:number, width:number, visible:boolean}>`
@@ -33,8 +35,7 @@ const OptionsWrapper = styled.ul<{left:number, width:number, visible:boolean}>`
     left:${props => props.width + 50}px ;
     width: auto;
     height: 160px;
-    padding-right: 5px;
-    box-sizing: border-box;
+    padding-right: 10px;
     background: #121212;
     border: 1px solid #707070;
     opacity: ${props => props.visible ? 1 : 0};
@@ -42,13 +43,16 @@ const OptionsWrapper = styled.ul<{left:number, width:number, visible:boolean}>`
     z-index: 10;
     overflow: scroll;
     cursor:pointer;
+    ${scrollStyle};
     & > li{
-        width: 100%;
+        width: 110%;
         height: 25px;
         color: #fff;
         font-size: 11px;
         font-weight: 300;
         padding-left: 10px;
+        display: flex;
+        align-items: center;
         box-sizing: border-box;
         overflow:hidden;
         &:hover{
@@ -61,11 +65,15 @@ export type SelectorProps<T> = {
     value:T,
     options:T[],
     func:(v:T) => void,
-    width?:number
+    width?:number,
+    disabled?:boolean
 }
 
-export const Selector:FC<SelectorProps<string|ScriptObj>> = ({ value, options, func, width = 250 }) => {
+export const Selector:FC<SelectorProps<string|ScriptObj>> = ({ disabled = false, value, options, func, width = 250 }) => {
   const [visible, setVisible] = useState<boolean>(false);
+  useMemo(() => {
+    if (disabled) setVisible(false);
+  }, [disabled]);
   const optionList = options.map((o, i) => {
     return (
         <li key={i} onClick={() => {
@@ -81,8 +89,11 @@ export const Selector:FC<SelectorProps<string|ScriptObj>> = ({ value, options, f
       <OptionsWrapper width={width} left={width + 5} visible={visible} >
           {optionList}
       </OptionsWrapper>
-      <SelectorBase width={width} onClick={() => setVisible(!visible)}>
-          <SelectorValue>
+      <SelectorBase width={width} onClick={() => {
+        if (disabled || options.length < 1) return;
+        setVisible(!visible);
+      }}>
+          <SelectorValue disabled={disabled}>
               {value}
           </SelectorValue>
       </SelectorBase>

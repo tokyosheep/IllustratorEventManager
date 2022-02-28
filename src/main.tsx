@@ -21,7 +21,8 @@ const ColorTheme = {
   light: '#EAEAEA',
   black: '#000',
   white: '#fff',
-  green: '#3BCE69'
+  green: '#3BCE69',
+  blue: '#0c2592'
 } as const;
 
 type ThemeType = typeof ColorTheme;

@@ -4,6 +4,7 @@ export const csInterface = new CSInterface();
 export const extensionId = csInterface.getExtensionID();
 export const extFolder = csInterface.getSystemPath(SystemPath.EXTENSION);
 export const extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) +`/jsx/`;
+export const saveJsonRoot = csInterface.getSystemPath(SystemPath.EXTENSION) +`/savedata/`;
 
 const dir_home = process.env[process.platform == `win32` ? `USERPROFILE` : `HOME`];
 export const dirDesktop = path.join(dir_home, `Desktop`);//デスクトップパス
@@ -45,6 +46,12 @@ export const init = async() =>{
     //await loadJsx(polyFillFolder);
 }
 
-export const alertFromJSX = msg => csInterface.evalScript(`$.evalFile(alert("${msg}"))`);
+export const alertFromJSX = msg => {
+    return new Promise(resolve => {
+        csInterface.evalScript(`$.evalFile(alert("${msg}"))`,() => {
+            resolve();
+        });
+    })
+}
 
 export const callDialog = () => cep.fs.showOpenDialog(true,false,`open`,dirDesktop,['jsx']);

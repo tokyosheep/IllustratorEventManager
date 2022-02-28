@@ -29,14 +29,15 @@ const StdCheckBoxBall = styled.div<{checked:boolean}>`
 
 type StdCheckProps = {
     checked:boolean,
-    func:(e: React.ChangeEvent<HTMLInputElement>) => void
+    func:(e: React.ChangeEvent<HTMLInputElement>, arg?:unknown) => void,
+    arg?:unknown
 }
 
-export const StdCheckBox:FC<StdCheckProps> = ({ checked, func }) => {
+export const StdCheckBox:FC<StdCheckProps> = ({ checked, func, arg }) => {
   const theme = useContext(ThemeContext);
   return (
       <StdCheckBoxWrappper checked={checked} color={theme.green} >
-          <input type='checkbox' checked={checked} onChange={(e) => func(e)} />
+          <input type='checkbox' checked={checked} onChange={(e) => func(e, arg)} />
           <StdCheckBoxBall checked={checked} ></StdCheckBoxBall>
       </StdCheckBoxWrappper>
   );

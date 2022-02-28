@@ -8,7 +8,7 @@ export const MainContainer = {
     padding: 10px;
     box-sizing: border-box;
     grid-template-rows: 35px 40px 120px minmax(170px, 1fr);
-    grid-template-columns: minmax(300px, 1fr) 180px;
+    grid-template-columns: minmax(330px, 1fr) 180px;
     grid-template-areas:
     'header header'
     'switchArea switchArea'
@@ -33,8 +33,10 @@ export const MainContainer = {
   `,
   RegisterFormContainer: styled.main`
     grid-area:registerForm;
+    margin-top: 5px;
     border: 1px solid #999;
     z-index: 1;
+    position: relative;
   `,
   NavButtonContainer: styled.nav`
     grid-area: navButtons;

@@ -1,18 +1,25 @@
-import React, { useCallback } from 'react';
+import React from 'react';
+import useEvent from './useEvent/useEvent';
 import { CommonTitle } from '../../styles/titles';
-import { useAppDispatch, useAppSelector } from '../../redux/app/hooks';
-import { switchTrigger } from '../../redux/features/dispatchTrigger/TriggerSlice';
+import { useAppSelector } from '../../redux/app/hooks';
 import { StdCheckBox } from '../parts/stdChexkBox';
 import { MainContainer } from '../../styles/containers';
 const { SwitchContainer } = MainContainer;
 
 const MainSwitch = () => {
-  const dispatch = useAppDispatch();
+  const { startEvents, removeEvents } = useEvent();
   const dispatchTrigger = useAppSelector(state => state.dispatchTrigger.value);
-  const handleCheckBox = useCallback((e) => dispatch(switchTrigger(e.target.checked)), [dispatchTrigger]);
+  const registeredData = useAppSelector(state => state.registeredData.value);
+  const handleCheckBox:(e, data:typeof registeredData)=>void = (e, data) => {
+    if (!dispatchTrigger) {
+      startEvents(data);
+    } else {
+      removeEvents(data);
+    }
+  };
   return (
       <SwitchContainer>
-        <StdCheckBox checked={dispatchTrigger} func={handleCheckBox} />
+        <StdCheckBox checked={dispatchTrigger} func={handleCheckBox} arg={registeredData} />
         <CommonTitle >Dispatch action or script through a registered event</CommonTitle>
       </SwitchContainer>
   );

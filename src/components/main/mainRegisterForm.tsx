@@ -1,9 +1,13 @@
-import React, { useCallback } from 'react';
-import styled from 'styled-components';
-import { refisterForm, selectEvent, selectType, selectScript, selectActionSet, selectAction } from '../../redux/features/registered/registerFormSlice';
+import React, { useCallback, useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
+import ListningEvent from '../listening/listening';
+import { alertFromJSX } from '../../fileSystem/init';
+import { addEvent, hasSameEvent } from '../../redux/features/registered/registeredSlice';
+import { selectEvent } from '../../redux/features/registered/registerFormSlice';
 import { Selector } from '../parts/Selector';
-import { StdRadioBox } from '../parts/radio';
 import { CommonTitle } from '../../styles/titles';
+import { StdButtton } from '../parts/buttons';
+import ProcessArea from './processArea/processArea';
 import { MainContainer } from '../../styles/containers';
 import { useAppSelector, useAppDispatch } from '../../redux/app/hooks';
 const { RegisterFormContainer } = MainContainer;
@@ -19,61 +23,64 @@ const EventWrapper = styled.div`
   }
 `;
 
-const ScriptWrapper = styled.div`
-  width: 100%;
-  height: 30px;
+const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
-  align-items:center;
+  align-items: cneter;
+  margin-left: 10px;
   margin-top: 10px;
-  & > *{
-    margin-left: 10px;
-  }
-`;
-
-const ActionWrapper = styled(ScriptWrapper)`
-  margin-top: 15px;
 `;
 
 const MainRegisterForm = () => {
+  const theme = useContext(ThemeContext);
   const dispatch = useAppDispatch();
   const events = useAppSelector(state => state.events.value);
   const registerForm = useAppSelector(state => state.registerForm.value);
-  const scripts = useAppSelector(state => state.scripts.value);
-  const actionSets = useAppSelector(state => state.actions.value);
+  const registeredData = useAppSelector(state => state.registeredData.value);
   const handleEventValue = useCallback((event) => {
     dispatch(selectEvent(event));
   }, [registerForm]);
-  const handleRadioBtn = useCallback((e, name) => {
-    dispatch(selectType(name));
-  }, [refisterForm]);
-  const scriptSelector = useCallback((sc) => {
-    dispatch(selectScript(sc));
-  }, [scripts]);
-  const selectActionAndSet = useCallback((set) => {
-    const targetActions = actionSets.sets.find(se => se.setName === set);
-    if (targetActions === undefined) return;
-    dispatch(selectActionSet({ set, action: targetActions.actions[0] }));
-  }, [registerForm]);
-  const selectActionName = useCallback((ac) => {
-    dispatch(selectAction(ac));
-  }, [registerForm]);
+  const registerEvent = useCallback((registerArg:typeof registerForm) => {
+    (async () => {
+      if (
+        registerArg.type === 'action' &&
+        registerArg.action.action === '' && registerArg.action.set === ''
+      ) {
+        await alertFromJSX('you set invlid action');
+        return;
+      }
+
+      if (registerArg.type === 'script' && registerArg.script.path === '') {
+        await alertFromJSX('you set invlid script');
+        return;
+      }
+      const filledEvent = {
+        event: registerArg.event,
+        type: registerArg.type,
+        dispatch: registerArg.type === 'action' ? registerArg.action : registerArg.script,
+        checked: false
+      }
+      if (hasSameEvent(filledEvent, registeredData)) {
+        await alertFromJSX('it already has same event');
+        return;
+      }
+      dispatch(addEvent(filledEvent));
+    })();
+  }, [registeredData]);
   return (
+      <>
       <RegisterFormContainer>
+        <ListningEvent />
         <EventWrapper>
           <CommonTitle>Illustrator Event</CommonTitle>
           <Selector func={handleEventValue} options={events} value={registerForm.event} />
         </EventWrapper>
-        <ScriptWrapper>
-          <StdRadioBox func={handleRadioBtn} checked={registerForm.type === 'script'} name='script' />
-          <Selector func={scriptSelector} value={registerForm.script.name} options={scripts} />
-        </ScriptWrapper>
-        <ActionWrapper>
-          <StdRadioBox func={handleRadioBtn} checked={registerForm.type === 'action'} name='action' />
-          <Selector width={180} func={selectActionAndSet} value={registerForm.action.set} options={actionSets.sets.map(set => set.setName)} />
-          <Selector width={180} func={selectActionName} value={registerForm.action.action} options={actionSets.actions} />
-        </ActionWrapper>
+        <ProcessArea />
+        <ButtonWrapper>
+          <StdButtton arg={registerForm} name='register' func={registerEvent} color={theme.blue} />
+        </ButtonWrapper>
       </RegisterFormContainer>
+      </>
   );
 };
 
