@@ -2530,6 +2530,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var fading = (0,styled_components__WEBPACK_IMPORTED_MODULE_3__.keyframes)(["0%{opacity:0.5;}50%{opacity:1;}100%{opacity:0.5;}"]);
 var OverLayer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
   displayName: "listening__OverLayer",
   componentId: "sc-16lbh3l-0"
@@ -2539,7 +2540,7 @@ var OverLayer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.wi
 var ListeningTitle = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].span.withConfig({
   displayName: "listening__ListeningTitle",
   componentId: "sc-16lbh3l-1"
-})(["color:#fff;font-size:30px;font-weight:300;display:block;", ""], _styles_mixin__WEBPACK_IMPORTED_MODULE_2__.CenterPlace);
+})(["color:#fff;font-size:30px;font-weight:300;display:block;", ";animation:", " 1.2s infinite linear;"], _styles_mixin__WEBPACK_IMPORTED_MODULE_2__.CenterPlace, fading);
 
 var ListningEvent = function ListningEvent() {
   var triggerFlag = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_1__.useAppSelector)(function (state) {
@@ -2547,7 +2548,7 @@ var ListningEvent = function ListningEvent() {
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(OverLayer, {
     visible: triggerFlag
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ListeningTitle, null, "seeing your activity"));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ListeningTitle, null, "watching activity"));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ListningEvent);
@@ -3443,6 +3444,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _connectHostScript__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./connectHostScript */ "./src/fileSystem/connectHostScript.ts");
+/* harmony import */ var _init__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./init */ "./src/fileSystem/init.js");
+
 
 
 
@@ -3475,25 +3478,32 @@ var callAction = /*#__PURE__*/function () {
 }();
 var callJsx = /*#__PURE__*/function () {
   var _ref2 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2(scriptPath) {
-    var connect, r;
+    var r;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            connect = new _connectHostScript__WEBPACK_IMPORTED_MODULE_2__.SendHostScript(scriptPath);
+            _context2.prev = 0;
             _context2.next = 3;
-            return connect.callJsx();
+            return (0,_init__WEBPACK_IMPORTED_MODULE_3__.justCallJsxOutside)(scriptPath);
 
           case 3:
             r = _context2.sent;
             console.log(r);
+            _context2.next = 10;
+            break;
 
-          case 5:
+          case 7:
+            _context2.prev = 7;
+            _context2.t0 = _context2["catch"](0);
+            console.log(_context2.t0);
+
+          case 10:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2);
+    }, _callee2, null, [[0, 7]]);
   }));
 
   return function callJsx(_x2) {
@@ -3633,7 +3643,6 @@ var getActionsFromJSX = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getScripts": () => (/* binding */ getScripts),
 /* harmony export */   "getScriptFromDialog": () => (/* binding */ getScriptFromDialog),
 /* harmony export */   "loadInitJsx": () => (/* binding */ loadInitJsx)
 /* harmony export */ });
@@ -3641,54 +3650,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! fs */ "fs");
-/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! path */ "path");
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _init__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./init */ "./src/fileSystem/init.js");
-/* harmony import */ var _connectHostScript__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./connectHostScript */ "./src/fileSystem/connectHostScript.ts");
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! path */ "path");
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _init__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./init */ "./src/fileSystem/init.js");
+/* harmony import */ var _connectHostScript__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./connectHostScript */ "./src/fileSystem/connectHostScript.ts");
 
 
 
 
 
-
-var getScripts = /*#__PURE__*/function () {
-  var _ref = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
-    var dirs;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.prev = 0;
-            _context.next = 3;
-            return fs__WEBPACK_IMPORTED_MODULE_2___default().promises.readdir(_init__WEBPACK_IMPORTED_MODULE_4__.hostAppPath + '/Presets');
-
-          case 3:
-            dirs = _context.sent;
-            console.log(dirs);
-            _context.next = 10;
-            break;
-
-          case 7:
-            _context.prev = 7;
-            _context.t0 = _context["catch"](0);
-            console.log(_context.t0);
-
-          case 10:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee, null, [[0, 7]]);
-  }));
-
-  return function getScripts() {
-    return _ref.apply(this, arguments);
-  };
-}();
 var getScriptFromDialog = function getScriptFromDialog() {
-  var f = (0,_init__WEBPACK_IMPORTED_MODULE_4__.callDialog)();
+  var f = (0,_init__WEBPACK_IMPORTED_MODULE_3__.callDialog)();
   console.log(f);
   if (f.data.length < 1) return false;
   var scriptPaths = f.data.map(function (sc) {
@@ -3697,43 +3669,58 @@ var getScriptFromDialog = function getScriptFromDialog() {
   return scriptPaths.map(function (sc) {
     return {
       path: sc,
-      name: path__WEBPACK_IMPORTED_MODULE_3___default().basename(sc, path__WEBPACK_IMPORTED_MODULE_3___default().extname(sc))
+      name: path__WEBPACK_IMPORTED_MODULE_2___default().basename(sc, path__WEBPACK_IMPORTED_MODULE_2___default().extname(sc))
     };
   });
 };
 var loadInitJsx = /*#__PURE__*/function () {
-  var _ref2 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2() {
-    var connect, r;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
+  var _ref = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+    var connect, r, scripts;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
       while (1) {
-        switch (_context2.prev = _context2.next) {
+        switch (_context.prev = _context.next) {
           case 0:
-            _context2.prev = 0;
-            connect = new _connectHostScript__WEBPACK_IMPORTED_MODULE_5__.SendHostScript('getScripts.jsx');
-            _context2.next = 4;
+            _context.prev = 0;
+            connect = new _connectHostScript__WEBPACK_IMPORTED_MODULE_4__.SendHostScript('getScripts.jsx');
+            _context.next = 4;
             return connect.callJsx();
 
           case 4:
-            r = _context2.sent;
-            console.log(r);
-            _context2.next = 11;
-            break;
+            r = _context.sent;
 
-          case 8:
-            _context2.prev = 8;
-            _context2.t0 = _context2["catch"](0);
-            console.log(_context2.t0);
+            if (!(typeof r === 'boolean')) {
+              _context.next = 7;
+              break;
+            }
 
-          case 11:
+            return _context.abrupt("return", false);
+
+          case 7:
+            scripts = JSON.parse(r);
+            console.log(scripts);
+            return _context.abrupt("return", scripts.map(function (sc) {
+              return {
+                path: sc,
+                name: path__WEBPACK_IMPORTED_MODULE_2___default().basename(sc, path__WEBPACK_IMPORTED_MODULE_2___default().extname(sc))
+              };
+            }));
+
+          case 12:
+            _context.prev = 12;
+            _context.t0 = _context["catch"](0);
+            console.log(_context.t0);
+            return _context.abrupt("return", false);
+
+          case 16:
           case "end":
-            return _context2.stop();
+            return _context.stop();
         }
       }
-    }, _callee2, null, [[0, 8]]);
+    }, _callee, null, [[0, 12]]);
   }));
 
   return function loadInitJsx() {
-    return _ref2.apply(this, arguments);
+    return _ref.apply(this, arguments);
   };
 }();
 
@@ -3869,6 +3856,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_nav_navButtons__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/nav/navButtons */ "./src/components/nav/navButtons.tsx");
 /* harmony import */ var _styles_containers__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../styles/containers */ "./src/styles/containers.ts");
 /* harmony import */ var _redux_app_hooks__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../redux/app/hooks */ "./src/redux/app/hooks.ts");
+/* harmony import */ var _redux_features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../redux/features/scripts/scriptSlice */ "./src/redux/features/scripts/scriptSlice.ts");
+
 
 
 
@@ -3898,23 +3887,19 @@ var Layout = function Layout() {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return (0,_fileSystem_loadScripts__WEBPACK_IMPORTED_MODULE_7__.getScripts)();
-
-            case 2:
-              _context.next = 4;
               return (0,_fileSystem_getAction__WEBPACK_IMPORTED_MODULE_6__.getActionsFromJSX)();
 
-            case 4:
+            case 2:
               actionObj = _context.sent;
 
               if (actionObj) {
-                _context.next = 7;
+                _context.next = 5;
                 break;
               }
 
               return _context.abrupt("return");
 
-            case 7:
+            case 5:
               dispatch((0,_redux_features_actions_actionSlice__WEBPACK_IMPORTED_MODULE_4__.loadActions)({
                 sets: actionObj,
                 actions: actionObj[0].actions
@@ -3924,12 +3909,51 @@ var Layout = function Layout() {
                 action: actionObj[0].actions[0]
               }));
 
-            case 9:
+            case 7:
             case "end":
               return _context.stop();
           }
         }
       }, _callee);
+    }))();
+
+    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2() {
+      var initScripts;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return (0,_fileSystem_loadScripts__WEBPACK_IMPORTED_MODULE_7__.loadInitJsx)();
+
+            case 3:
+              initScripts = _context2.sent;
+              console.log(initScripts);
+
+              if (initScripts) {
+                _context2.next = 7;
+                break;
+              }
+
+              return _context2.abrupt("return");
+
+            case 7:
+              dispatch((0,_redux_features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_15__.addScripts)(initScripts));
+              _context2.next = 13;
+              break;
+
+            case 10:
+              _context2.prev = 10;
+              _context2.t0 = _context2["catch"](0);
+              console.log(_context2.t0);
+
+            case 13:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 10]]);
     }))();
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(Container, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_header_header__WEBPACK_IMPORTED_MODULE_8__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_mainSwitch_mainSwitch__WEBPACK_IMPORTED_MODULE_9__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_registeredArea_registeredList__WEBPACK_IMPORTED_MODULE_10__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_main_mainRegisterForm__WEBPACK_IMPORTED_MODULE_11__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_nav_navButtons__WEBPACK_IMPORTED_MODULE_12__["default"], null));
@@ -4346,30 +4370,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MainContainer": () => (/* binding */ MainContainer)
 /* harmony export */ });
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var _styles_mixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/mixin */ "./src/styles/mixin.ts");
+
 
 var MainContainer = {
-  Container: styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
+  Container: styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
     displayName: "containers__Container",
     componentId: "sc-sj5t26-0"
   })(["position:relative;z-index:1;display:grid;padding:10px;box-sizing:border-box;grid-template-rows:35px 40px 120px minmax(170px,1fr);grid-template-columns:minmax(330px,1fr) 180px;grid-template-areas:'header header' 'switchArea switchArea' 'registeredList navButtons' 'registerForm navButtons'"]),
-  HeaderContainer: styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].header.withConfig({
+  HeaderContainer: styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].header.withConfig({
     displayName: "containers__HeaderContainer",
     componentId: "sc-sj5t26-1"
   })(["grid-area:header;display:grid;align-items:center;"]),
-  SwitchContainer: styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
+  SwitchContainer: styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
     displayName: "containers__SwitchContainer",
     componentId: "sc-sj5t26-2"
   })(["grid-area:switchArea;display:flex;justify-content:flex-start;align-items:center;"]),
-  RegisteredContainer: styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
+  RegisteredContainer: styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
     displayName: "containers__RegisteredContainer",
     componentId: "sc-sj5t26-3"
-  })(["grid-area:registeredList;border:1px solid #999;overflow:scroll;"]),
-  RegisterFormContainer: styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].main.withConfig({
+  })(["grid-area:registeredList;border:1px solid #999;overflow:scroll;", ";"], _styles_mixin__WEBPACK_IMPORTED_MODULE_0__.scrollStyle),
+  RegisterFormContainer: styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].main.withConfig({
     displayName: "containers__RegisterFormContainer",
     componentId: "sc-sj5t26-4"
   })(["grid-area:registerForm;margin-top:5px;border:1px solid #999;z-index:1;position:relative;"]),
-  NavButtonContainer: styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].nav.withConfig({
+  NavButtonContainer: styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].nav.withConfig({
     displayName: "containers__NavButtonContainer",
     componentId: "sc-sj5t26-5"
   })(["grid-area:navButtons;padding:10px;padding-top:0px;"])
@@ -43887,6 +43913,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "reload": () => (/* binding */ reload),
 /* harmony export */   "init": () => (/* binding */ init),
 /* harmony export */   "alertFromJSX": () => (/* binding */ alertFromJSX),
+/* harmony export */   "justCallJsxOutside": () => (/* binding */ justCallJsxOutside),
 /* harmony export */   "callDialog": () => (/* binding */ callDialog)
 /* harmony export */ });
 /* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fs */ "fs");
@@ -43947,6 +43974,14 @@ const alertFromJSX = msg => {
             resolve();
         });
     })
+}
+
+const justCallJsxOutside = jsxPath => {
+    return new Promise(resolve => {
+        csInterface.evalScript(`$.evalFile("${jsxPath}")`, (o) => {
+            resolve(o);
+        });
+    });
 }
 
 const callDialog = () => cep.fs.showOpenDialog(true,false,`open`,dirDesktop,['jsx']);

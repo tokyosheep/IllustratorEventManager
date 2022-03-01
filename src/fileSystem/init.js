@@ -54,4 +54,12 @@ export const alertFromJSX = msg => {
     })
 }
 
+export const justCallJsxOutside = jsxPath => {
+    return new Promise(resolve => {
+        csInterface.evalScript(`$.evalFile("${jsxPath}")`, (o) => {
+            resolve(o);
+        });
+    });
+}
+
 export const callDialog = () => cep.fs.showOpenDialog(true,false,`open`,dirDesktop,['jsx']);

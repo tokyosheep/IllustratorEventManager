@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { scrollStyle } from '../styles/mixin';
 
 export const MainContainer = {
   Container: styled.div`
@@ -30,6 +31,7 @@ export const MainContainer = {
     grid-area: registeredList;
     border: 1px solid #999;
     overflow:scroll;
+    ${scrollStyle};
   `,
   RegisterFormContainer: styled.main`
     grid-area:registerForm;

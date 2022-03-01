@@ -1,17 +1,7 @@
-import fs from 'fs';
 import path from 'path';
 import { ScriptObj } from '../redux/features/scripts/scriptSlice';
-import { hostAppPath, callDialog } from './init';
+import { callDialog } from './init';
 import { SendHostScript } from './connectHostScript';
-
-export const getScripts = async () => {
-  try {
-    const dirs = await fs.promises.readdir(hostAppPath + '/Presets');
-    console.log(dirs);
-  } catch (e) {
-    console.log(e);
-  }
-}
 
 export const getScriptFromDialog:()=>ScriptObj[]|false = () => {
   const f = callDialog();
@@ -21,12 +11,16 @@ export const getScriptFromDialog:()=>ScriptObj[]|false = () => {
   return scriptPaths.map(sc => ({ path: sc, name: path.basename(sc, path.extname(sc)) }));
 }
 
-export const loadInitJsx = async () => {
+export const loadInitJsx:()=>Promise<ScriptObj[]|false> = async () => {
   try {
     const connect = new SendHostScript('getScripts.jsx');
     const r = await connect.callJsx();
-    console.log(r);
+    if (typeof r === 'boolean') return false;
+    const scripts = JSON.parse(r);
+    console.log(scripts);
+    return scripts.map(sc => ({ path: sc, name: path.basename(sc, path.extname(sc)) }));
   } catch (e) {
     console.log(e);
+    return false;
   }
 }

@@ -1,5 +1,6 @@
 import { SendHostScript } from './connectHostScript';
 import { ActionSet } from '../redux/features/registered/registeredSlice';
+import { justCallJsxOutside } from './init';
 
 export const callAction:(arg:ActionSet)=>Promise<void> = async (arg) => {
   const connect = new SendHostScript();
@@ -8,7 +9,10 @@ export const callAction:(arg:ActionSet)=>Promise<void> = async (arg) => {
 }
 
 export const callJsx:(scriptParh:string)=>Promise<void> = async (scriptPath) => {
-  const connect = new SendHostScript(scriptPath);
-  const r = await connect.callJsx();
-  console.log(r);
+  try {
+    const r = await justCallJsxOutside(scriptPath);
+    console.log(r);
+  } catch (e) {
+    console.log(e);
+  }
 }
