@@ -1,4 +1,4 @@
-import React, { FC, useState, useMemo } from 'react';
+import React, { FC, useState, useMemo, useRef, useEffect } from 'react';
 import { YAxe, scrollStyle } from '../../styles/mixin';
 import { ScriptObj } from '../../redux/features/scripts/scriptSlice';
 import styled from 'styled-components';
@@ -24,6 +24,7 @@ const SelectorValue = styled.span<{disabled:boolean}>`
     z-index: 3;
     cursor:pointer;
     white-space: nowrap;
+    pointer-events: none;
 `;
 
 const OptionsWrapper = styled.ul<{left:number, width:number, visible:boolean}>`
@@ -71,6 +72,14 @@ export type SelectorProps<T> = {
 
 export const Selector:FC<SelectorProps<string|ScriptObj>> = ({ disabled = false, value, options, func, width = 250 }) => {
   const [visible, setVisible] = useState<boolean>(false);
+  const selectorRef = useRef();
+  useEffect(() => {
+    document.body.addEventListener('click', (e) => {
+      if (selectorRef.current !== e.target) {
+        setVisible(false);
+      }
+    });
+  }, []);
   useMemo(() => {
     if (disabled) setVisible(false);
   }, [disabled]);
@@ -89,7 +98,7 @@ export const Selector:FC<SelectorProps<string|ScriptObj>> = ({ disabled = false,
       <OptionsWrapper width={width} left={width + 5} visible={visible} >
           {optionList}
       </OptionsWrapper>
-      <SelectorBase width={width} onClick={() => {
+      <SelectorBase ref={selectorRef} width={width} onClick={(e) => {
         if (disabled || options.length < 1) return;
         setVisible(!visible);
       }}>

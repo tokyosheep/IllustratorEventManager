@@ -1,9 +1,10 @@
 import React, { useMemo } from 'react';
-import { selectActionSet } from '../redux/features/registered/registerFormSlice';
+import { selectActionSet, selectScript } from '../redux/features/registered/registerFormSlice';
 import { loadActions } from '../redux/features/actions/actionSlice';
 import { init } from '../fileSystem/init';
 import { getActionsFromJSX } from '../fileSystem/getAction';
 import { loadInitJsx } from '../fileSystem/loadScripts';
+import CoverLayer from '../components/overLayer/overLayer';
 import Header from '../components/header/header';
 import MainSwitch from '../components/mainSwitch/mainSwitch';
 import RegisteredList from '../components/registeredArea/registeredList';
@@ -34,12 +35,15 @@ const Layout = () => {
         console.log(initScripts);
         if (!initScripts) return;
         dispatch(addScripts(initScripts));
+        dispatch(selectScript(initScripts[0]));
       } catch (e) {
         console.log(e);
       }
     })();
   }, []);
   return (
+    <>
+      <CoverLayer />
       <Container>
         <Header />
         <MainSwitch />
@@ -47,6 +51,7 @@ const Layout = () => {
         <MainRegisterForm />
         <NavButtons />
       </Container>
+    </>
   );
 };
 

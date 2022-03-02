@@ -27,8 +27,8 @@ const StorageWwrapper = () => {
   }, [registeredData])
   return (
       <StorageButtonWrapper>
-          <StdButtton disabled={eventFlag} name='save events' func={saveJsonData} arg={registeredData} />
-          <StdButtton disabled={eventFlag} name='load events' func={readStorage} />
+          <StdButtton disabled={eventFlag} name='save' func={saveJsonData} arg={registeredData} />
+          <StdButtton disabled={eventFlag} name='load' func={readStorage} />
       </StorageButtonWrapper>
   )
 };

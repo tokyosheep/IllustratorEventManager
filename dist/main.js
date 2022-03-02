@@ -2964,45 +2964,89 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
-/* harmony import */ var _redux_features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../redux/features/scripts/scriptSlice */ "./src/redux/features/scripts/scriptSlice.ts");
-/* harmony import */ var _fileSystem_loadScripts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../fileSystem/loadScripts */ "./src/fileSystem/loadScripts.ts");
-/* harmony import */ var _parts_buttons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../parts/buttons */ "./src/components/parts/buttons.tsx");
-/* harmony import */ var _redux_app_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../redux/app/hooks */ "./src/redux/app/hooks.ts");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var _redux_features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../redux/features/scripts/scriptSlice */ "./src/redux/features/scripts/scriptSlice.ts");
+/* harmony import */ var _fileSystem_loadScripts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../fileSystem/loadScripts */ "./src/fileSystem/loadScripts.ts");
+/* harmony import */ var _parts_buttons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../parts/buttons */ "./src/components/parts/buttons.tsx");
+/* harmony import */ var _redux_app_hooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../redux/app/hooks */ "./src/redux/app/hooks.ts");
+/* harmony import */ var _redux_features_dispatchTrigger_disableSlice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../redux/features/dispatchTrigger/disableSlice */ "./src/redux/features/dispatchTrigger/disableSlice.ts");
 
 
 
 
 
 
-var ScriptButtonWrapper = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].div.withConfig({
+
+
+
+var ScriptButtonWrapper = styled_components__WEBPACK_IMPORTED_MODULE_8__["default"].div.withConfig({
   displayName: "scriptWrapper__ScriptButtonWrapper",
   componentId: "sc-3v0vfb-0"
 })(["width:100%;height:100px;"]);
 
+var timeLag = function timeLag() {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      resolve();
+    }, 1000);
+  });
+};
+
 var ScriptWrapper = function ScriptWrapper() {
-  var dispatch = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_4__.useAppDispatch)();
-  var eventFlag = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(function (state) {
+  var dispatch = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_6__.useAppDispatch)();
+  var eventFlag = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_6__.useAppSelector)(function (state) {
     return state.dispatchTrigger.value;
   });
-  var scripts = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(function (state) {
+  var scripts = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_6__.useAppSelector)(function (state) {
     return state.scripts.value;
   });
-  var loadScripts = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
-    var r = (0,_fileSystem_loadScripts__WEBPACK_IMPORTED_MODULE_2__.getScriptFromDialog)();
-    console.log(r);
-    if (!r) return;
-    dispatch((0,_redux_features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_1__.addScripts)(r));
+  var loadScripts = (0,react__WEBPACK_IMPORTED_MODULE_2__.useCallback)(function () {
+    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+      var r;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              dispatch((0,_redux_features_dispatchTrigger_disableSlice__WEBPACK_IMPORTED_MODULE_7__.switchDisable)(true));
+              _context.next = 3;
+              return timeLag();
+
+            case 3:
+              r = (0,_fileSystem_loadScripts__WEBPACK_IMPORTED_MODULE_4__.getScriptFromDialog)();
+              console.log(r);
+              dispatch((0,_redux_features_dispatchTrigger_disableSlice__WEBPACK_IMPORTED_MODULE_7__.switchDisable)(false));
+
+              if (r) {
+                _context.next = 8;
+                break;
+              }
+
+              return _context.abrupt("return");
+
+            case 8:
+              dispatch((0,_redux_features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_3__.addScripts)(r));
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
   }, [scripts]);
-  var removeAllScripts = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
-    dispatch((0,_redux_features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_1__.resetScripts)(null));
+  var removeAllScripts = (0,react__WEBPACK_IMPORTED_MODULE_2__.useCallback)(function () {
+    dispatch((0,_redux_features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_3__.resetScripts)(null));
   }, [scripts]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ScriptButtonWrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_parts_buttons__WEBPACK_IMPORTED_MODULE_3__.StdButtton, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ScriptButtonWrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_parts_buttons__WEBPACK_IMPORTED_MODULE_5__.StdButtton, {
     disabled: eventFlag,
     name: "load script",
     func: loadScripts
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_parts_buttons__WEBPACK_IMPORTED_MODULE_3__.StdButtton, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_parts_buttons__WEBPACK_IMPORTED_MODULE_5__.StdButtton, {
     disabled: eventFlag,
     name: "reset script",
     func: removeAllScripts
@@ -3112,17 +3156,54 @@ var StorageWwrapper = function StorageWwrapper() {
   }, [registeredData]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(StorageButtonWrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_parts_buttons__WEBPACK_IMPORTED_MODULE_3__.StdButtton, {
     disabled: eventFlag,
-    name: "save events",
+    name: "save",
     func: saveJsonData,
     arg: registeredData
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_parts_buttons__WEBPACK_IMPORTED_MODULE_3__.StdButtton, {
     disabled: eventFlag,
-    name: "load events",
+    name: "load",
     func: readStorage
   }));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StorageWwrapper);
+
+/***/ }),
+
+/***/ "./src/components/overLayer/overLayer.tsx":
+/*!************************************************!*\
+  !*** ./src/components/overLayer/overLayer.tsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var _redux_app_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../redux/app/hooks */ "./src/redux/app/hooks.ts");
+
+
+
+var OverLayer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
+  displayName: "overLayer__OverLayer",
+  componentId: "sc-499hqv-0"
+})(["z-index:25;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:", ";"], function (props) {
+  return props.visible ? 'block' : 'none';
+});
+
+var CoverLayer = function CoverLayer() {
+  var disable = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_1__.useAppSelector)(function (state) {
+    return state.disablePanel.value;
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(OverLayer, {
+    visible: disable
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CoverLayer);
 
 /***/ }),
 
@@ -3155,7 +3236,7 @@ var SelectorBase = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].lab
 var SelectorValue = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].span.withConfig({
   displayName: "Selector__SelectorValue",
   componentId: "sc-1yls7ex-1"
-})(["color:", ";font-size:11px;font-weight:300;", ";left:20px;z-index:3;cursor:pointer;white-space:nowrap;"], function (props) {
+})(["color:", ";font-size:11px;font-weight:300;", ";left:20px;z-index:3;cursor:pointer;white-space:nowrap;pointer-events:none;"], function (props) {
   return props.disabled ? '#888' : '#fff';
 }, _styles_mixin__WEBPACK_IMPORTED_MODULE_2__.YAxe);
 var OptionsWrapper = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].ul.withConfig({
@@ -3182,6 +3263,14 @@ var Selector = function Selector(_ref) {
       visible = _useState2[0],
       setVisible = _useState2[1];
 
+  var selectorRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    document.body.addEventListener('click', function (e) {
+      if (selectorRef.current !== e.target) {
+        setVisible(false);
+      }
+    });
+  }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useMemo)(function () {
     if (disabled) setVisible(false);
   }, [disabled]);
@@ -3199,8 +3288,9 @@ var Selector = function Selector(_ref) {
     left: width + 5,
     visible: visible
   }, optionList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(SelectorBase, {
+    ref: selectorRef,
     width: width,
-    onClick: function onClick() {
+    onClick: function onClick(e) {
       if (disabled || options.length < 1) return;
       setVisible(!visible);
     }
@@ -3849,14 +3939,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fileSystem_init__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../fileSystem/init */ "./src/fileSystem/init.js");
 /* harmony import */ var _fileSystem_getAction__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../fileSystem/getAction */ "./src/fileSystem/getAction.ts");
 /* harmony import */ var _fileSystem_loadScripts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../fileSystem/loadScripts */ "./src/fileSystem/loadScripts.ts");
-/* harmony import */ var _components_header_header__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/header/header */ "./src/components/header/header.tsx");
-/* harmony import */ var _components_mainSwitch_mainSwitch__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/mainSwitch/mainSwitch */ "./src/components/mainSwitch/mainSwitch.tsx");
-/* harmony import */ var _components_registeredArea_registeredList__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/registeredArea/registeredList */ "./src/components/registeredArea/registeredList.tsx");
-/* harmony import */ var _components_main_mainRegisterForm__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/main/mainRegisterForm */ "./src/components/main/mainRegisterForm.tsx");
-/* harmony import */ var _components_nav_navButtons__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/nav/navButtons */ "./src/components/nav/navButtons.tsx");
-/* harmony import */ var _styles_containers__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../styles/containers */ "./src/styles/containers.ts");
-/* harmony import */ var _redux_app_hooks__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../redux/app/hooks */ "./src/redux/app/hooks.ts");
-/* harmony import */ var _redux_features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../redux/features/scripts/scriptSlice */ "./src/redux/features/scripts/scriptSlice.ts");
+/* harmony import */ var _components_overLayer_overLayer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/overLayer/overLayer */ "./src/components/overLayer/overLayer.tsx");
+/* harmony import */ var _components_header_header__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/header/header */ "./src/components/header/header.tsx");
+/* harmony import */ var _components_mainSwitch_mainSwitch__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/mainSwitch/mainSwitch */ "./src/components/mainSwitch/mainSwitch.tsx");
+/* harmony import */ var _components_registeredArea_registeredList__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/registeredArea/registeredList */ "./src/components/registeredArea/registeredList.tsx");
+/* harmony import */ var _components_main_mainRegisterForm__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/main/mainRegisterForm */ "./src/components/main/mainRegisterForm.tsx");
+/* harmony import */ var _components_nav_navButtons__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/nav/navButtons */ "./src/components/nav/navButtons.tsx");
+/* harmony import */ var _styles_containers__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../styles/containers */ "./src/styles/containers.ts");
+/* harmony import */ var _redux_app_hooks__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../redux/app/hooks */ "./src/redux/app/hooks.ts");
+/* harmony import */ var _redux_features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../redux/features/scripts/scriptSlice */ "./src/redux/features/scripts/scriptSlice.ts");
 
 
 
@@ -3873,10 +3964,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Container = _styles_containers__WEBPACK_IMPORTED_MODULE_13__.MainContainer.Container;
+
+var Container = _styles_containers__WEBPACK_IMPORTED_MODULE_14__.MainContainer.Container;
 
 var Layout = function Layout() {
-  var dispatch = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_14__.useAppDispatch)();
+  var dispatch = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_15__.useAppDispatch)();
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useMemo)(function () {
     (0,_fileSystem_init__WEBPACK_IMPORTED_MODULE_5__.init)();
 
@@ -3939,24 +4031,25 @@ var Layout = function Layout() {
               return _context2.abrupt("return");
 
             case 7:
-              dispatch((0,_redux_features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_15__.addScripts)(initScripts));
-              _context2.next = 13;
+              dispatch((0,_redux_features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_16__.addScripts)(initScripts));
+              dispatch((0,_redux_features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_3__.selectScript)(initScripts[0]));
+              _context2.next = 14;
               break;
 
-            case 10:
-              _context2.prev = 10;
+            case 11:
+              _context2.prev = 11;
               _context2.t0 = _context2["catch"](0);
               console.log(_context2.t0);
 
-            case 13:
+            case 14:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[0, 10]]);
+      }, _callee2, null, [[0, 11]]);
     }))();
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(Container, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_header_header__WEBPACK_IMPORTED_MODULE_8__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_mainSwitch_mainSwitch__WEBPACK_IMPORTED_MODULE_9__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_registeredArea_registeredList__WEBPACK_IMPORTED_MODULE_10__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_main_mainRegisterForm__WEBPACK_IMPORTED_MODULE_11__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_nav_navButtons__WEBPACK_IMPORTED_MODULE_12__["default"], null));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(react__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_overLayer_overLayer__WEBPACK_IMPORTED_MODULE_8__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(Container, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_header_header__WEBPACK_IMPORTED_MODULE_9__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_mainSwitch_mainSwitch__WEBPACK_IMPORTED_MODULE_10__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_registeredArea_registeredList__WEBPACK_IMPORTED_MODULE_11__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_main_mainRegisterForm__WEBPACK_IMPORTED_MODULE_12__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_components_nav_navButtons__WEBPACK_IMPORTED_MODULE_13__["default"], null)));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layout);
@@ -3995,13 +4088,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "store": () => (/* binding */ store)
 /* harmony export */ });
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 /* harmony import */ var _features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../features/scripts/scriptSlice */ "./src/redux/features/scripts/scriptSlice.ts");
 /* harmony import */ var _features_actions_actionSlice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../features/actions/actionSlice */ "./src/redux/features/actions/actionSlice.ts");
 /* harmony import */ var _features_events_eventSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../features/events/eventSlice */ "./src/redux/features/events/eventSlice.ts");
 /* harmony import */ var _features_dispatchTrigger_TriggerSlice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../features/dispatchTrigger/TriggerSlice */ "./src/redux/features/dispatchTrigger/TriggerSlice.ts");
-/* harmony import */ var _features_registered_registeredSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../features/registered/registeredSlice */ "./src/redux/features/registered/registeredSlice.ts");
-/* harmony import */ var _features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../features/registered/registerFormSlice */ "./src/redux/features/registered/registerFormSlice.ts");
+/* harmony import */ var _features_dispatchTrigger_disableSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../features/dispatchTrigger/disableSlice */ "./src/redux/features/dispatchTrigger/disableSlice.ts");
+/* harmony import */ var _features_registered_registeredSlice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../features/registered/registeredSlice */ "./src/redux/features/registered/registeredSlice.ts");
+/* harmony import */ var _features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../features/registered/registerFormSlice */ "./src/redux/features/registered/registerFormSlice.ts");
 
 
 
@@ -4009,14 +4103,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_6__.configureStore)({
+
+var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_7__.configureStore)({
   reducer: {
     actions: _features_actions_actionSlice__WEBPACK_IMPORTED_MODULE_1__["default"],
     scripts: _features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_0__["default"],
     events: _features_events_eventSlice__WEBPACK_IMPORTED_MODULE_2__["default"],
     dispatchTrigger: _features_dispatchTrigger_TriggerSlice__WEBPACK_IMPORTED_MODULE_3__["default"],
-    registeredData: _features_registered_registeredSlice__WEBPACK_IMPORTED_MODULE_4__["default"],
-    registerForm: _features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_5__["default"]
+    disablePanel: _features_dispatchTrigger_disableSlice__WEBPACK_IMPORTED_MODULE_4__["default"],
+    registeredData: _features_registered_registeredSlice__WEBPACK_IMPORTED_MODULE_5__["default"],
+    registerForm: _features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_6__["default"]
   }
 });
 
@@ -4110,6 +4206,42 @@ var dispatchTrigger = function dispatchTrigger(state) {
   return state.dispatchTrigger;
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (triggerSlice.reducer);
+
+/***/ }),
+
+/***/ "./src/redux/features/dispatchTrigger/disableSlice.ts":
+/*!************************************************************!*\
+  !*** ./src/redux/features/dispatchTrigger/disableSlice.ts ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "switchDisable": () => (/* binding */ switchDisable),
+/* harmony export */   "disablePanel": () => (/* binding */ disablePanel),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+
+var initialState = {
+  value: false
+};
+var disableSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice)({
+  name: 'disablePanel',
+  initialState: initialState,
+  reducers: {
+    switchDisable: function switchDisable(state, action) {
+      state.value = action.payload;
+    }
+  }
+});
+var switchDisable = disableSlice.actions.switchDisable;
+
+var disablePanel = function disablePanel(state) {
+  return state.disablePanel;
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (disableSlice.reducer);
 
 /***/ }),
 
