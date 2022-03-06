@@ -2709,71 +2709,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
-/* harmony import */ var _redux_features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../redux/features/registered/registerFormSlice */ "./src/redux/features/registered/registerFormSlice.ts");
-/* harmony import */ var _parts_radio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../parts/radio */ "./src/components/parts/radio.tsx");
-/* harmony import */ var _parts_Selector__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../parts/Selector */ "./src/components/parts/Selector.tsx");
-/* harmony import */ var _redux_app_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../redux/app/hooks */ "./src/redux/app/hooks.ts");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var _redux_features_actions_actionSlice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../redux/features/actions/actionSlice */ "./src/redux/features/actions/actionSlice.ts");
+/* harmony import */ var _redux_features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../redux/features/registered/registerFormSlice */ "./src/redux/features/registered/registerFormSlice.ts");
+/* harmony import */ var _parts_radio__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../parts/radio */ "./src/components/parts/radio.tsx");
+/* harmony import */ var _parts_Selector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../parts/Selector */ "./src/components/parts/Selector.tsx");
+/* harmony import */ var _redux_app_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../redux/app/hooks */ "./src/redux/app/hooks.ts");
 
 
 
 
 
 
-var ScriptWrapper = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].div.withConfig({
+
+var ScriptWrapper = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div.withConfig({
   displayName: "processArea__ScriptWrapper",
   componentId: "sc-1nwn1dm-0"
 })(["width:100%;height:30px;display:flex;justify-content:flex-start;align-items:center;margin-top:10px;& > *{margin-left:10px;}"]);
-var ActionWrapper = (0,styled_components__WEBPACK_IMPORTED_MODULE_5__["default"])(ScriptWrapper).withConfig({
+var ActionWrapper = (0,styled_components__WEBPACK_IMPORTED_MODULE_6__["default"])(ScriptWrapper).withConfig({
   displayName: "processArea__ActionWrapper",
   componentId: "sc-1nwn1dm-1"
 })(["margin-top:15px;"]);
 
 var ProcessArea = function ProcessArea() {
-  var dispatch = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_4__.useAppDispatch)();
-  var scripts = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(function (state) {
+  var dispatch = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_5__.useAppDispatch)();
+  var scripts = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(function (state) {
     return state.scripts.value;
   });
-  var actionSets = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(function (state) {
+  var actionSets = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(function (state) {
     return state.actions.value;
   });
-  var registerForm = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(function (state) {
+  var registerForm = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(function (state) {
     return state.registerForm.value;
   });
   console.log(registerForm);
   var handleRadioBtn = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (e, name) {
-    dispatch((0,_redux_features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_1__.selectType)(name));
+    dispatch((0,_redux_features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_2__.selectType)(name));
   }, [registerForm]);
   var scriptSelector = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (sc) {
-    dispatch((0,_redux_features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_1__.selectScript)(sc));
+    dispatch((0,_redux_features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_2__.selectScript)(sc));
   }, [scripts]);
   var selectActionAndSet = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (set) {
     var targetActions = actionSets.sets.find(function (se) {
       return se.setName === set;
     });
     if (targetActions === undefined) return;
-    dispatch((0,_redux_features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_1__.selectActionSet)({
+    dispatch((0,_redux_features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_2__.selectActionSet)({
       set: set,
       action: targetActions.actions[0]
     }));
+    dispatch((0,_redux_features_actions_actionSlice__WEBPACK_IMPORTED_MODULE_1__.setAction)(targetActions.actions));
   }, [registerForm]);
   var selectActionName = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (ac) {
-    dispatch((0,_redux_features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_1__.selectAction)(ac));
+    dispatch((0,_redux_features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_2__.selectAction)(ac));
   }, [registerForm]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ScriptWrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_parts_radio__WEBPACK_IMPORTED_MODULE_2__.StdRadioBox, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ScriptWrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_parts_radio__WEBPACK_IMPORTED_MODULE_3__.StdRadioBox, {
     func: handleRadioBtn,
     checked: registerForm.type === 'script',
     name: "script"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_parts_Selector__WEBPACK_IMPORTED_MODULE_3__.Selector, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_parts_Selector__WEBPACK_IMPORTED_MODULE_4__.Selector, {
     disabled: registerForm.type !== 'script',
     func: scriptSelector,
     value: registerForm.script.name,
     options: scripts
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ActionWrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_parts_radio__WEBPACK_IMPORTED_MODULE_2__.StdRadioBox, {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ActionWrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_parts_radio__WEBPACK_IMPORTED_MODULE_3__.StdRadioBox, {
     func: handleRadioBtn,
     checked: registerForm.type === 'action',
     name: "action"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_parts_Selector__WEBPACK_IMPORTED_MODULE_3__.Selector, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_parts_Selector__WEBPACK_IMPORTED_MODULE_4__.Selector, {
     disabled: registerForm.type !== 'action',
     width: 180,
     func: selectActionAndSet,
@@ -2781,7 +2784,7 @@ var ProcessArea = function ProcessArea() {
     options: actionSets.sets.map(function (set) {
       return set.setName;
     })
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_parts_Selector__WEBPACK_IMPORTED_MODULE_3__.Selector, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_parts_Selector__WEBPACK_IMPORTED_MODULE_4__.Selector, {
     disabled: registerForm.type !== 'action',
     width: 180,
     func: selectActionName,
@@ -3222,24 +3225,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _styles_mixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../styles/mixin */ "./src/styles/mixin.ts");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var _redux_app_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../redux/app/hooks */ "./src/redux/app/hooks.ts");
+/* harmony import */ var _redux_features_detailBar_detailBarSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../redux/features/detailBar/detailBarSlice */ "./src/redux/features/detailBar/detailBarSlice.ts");
 
 
 
 
-var SelectorBase = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].label.withConfig({
+
+
+var SelectorBase = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].label.withConfig({
   displayName: "Selector__SelectorBase",
   componentId: "sc-1yls7ex-0"
 })(["position:relative;z-index:1;display:block;width:", "px;height:25px;background:#121212;border:1px solid #707070;cursor:pointer;overflow:hidden;"], function (props) {
   return props.width;
 });
-var SelectorValue = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].span.withConfig({
+var SelectorValue = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].span.withConfig({
   displayName: "Selector__SelectorValue",
   componentId: "sc-1yls7ex-1"
-})(["color:", ";font-size:11px;font-weight:300;", ";left:20px;z-index:3;cursor:pointer;white-space:nowrap;pointer-events:none;"], function (props) {
+})(["color:", ";font-size:11px;font-weight:300;", ";left:20px;z-index:3;white-space:nowrap;pointer-events:none;"], function (props) {
   return props.disabled ? '#888' : '#fff';
 }, _styles_mixin__WEBPACK_IMPORTED_MODULE_2__.YAxe);
-var OptionsWrapper = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].ul.withConfig({
+var OptionsWrapper = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].ul.withConfig({
   displayName: "Selector__OptionsWrapper",
   componentId: "sc-1yls7ex-2"
 })(["list-style:none;padding:0;margin:0;position:fixed;top:80px;left:", "px;width:auto;height:160px;padding-right:10px;background:#121212;border:1px solid #707070;opacity:", ";pointer-events:", ";z-index:10;overflow:scroll;cursor:pointer;", ";& > li{width:110%;height:25px;color:#fff;font-size:11px;font-weight:300;padding-left:10px;display:flex;align-items:center;box-sizing:border-box;overflow:hidden;&:hover{background:#575757;}}"], function (props) {
@@ -3263,6 +3270,7 @@ var Selector = function Selector(_ref) {
       visible = _useState2[0],
       setVisible = _useState2[1];
 
+  var dispatch = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_3__.useAppDispatch)();
   var selectorRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     document.body.addEventListener('click', function (e) {
@@ -3290,6 +3298,15 @@ var Selector = function Selector(_ref) {
   }, optionList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(SelectorBase, {
     ref: selectorRef,
     width: width,
+    onMouseEnter: function onMouseEnter() {
+      dispatch((0,_redux_features_detailBar_detailBarSlice__WEBPACK_IMPORTED_MODULE_4__.enterArea)({
+        msg: typeof value === 'string' ? value : value.name,
+        visible: true
+      }));
+    },
+    onMouseLeave: function onMouseLeave() {
+      dispatch((0,_redux_features_detailBar_detailBarSlice__WEBPACK_IMPORTED_MODULE_4__.leaveArea)());
+    },
     onClick: function onClick(e) {
       if (disabled || options.length < 1) return;
       setVisible(!visible);
@@ -3368,20 +3385,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var _redux_app_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../redux/app/hooks */ "./src/redux/app/hooks.ts");
 
 
-var BarBase = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+
+var BarBase = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
   displayName: "detailSideBar__BarBase",
   componentId: "sc-ha4nkf-0"
-})(["background:#000;width:100%;height:20px;position:fixed;top:100%;left:0px;transform:translateY(-30px);display:", ";color:#fff;font-size:12px;font-weight:200;align-items:center;z-index:10;padding-left:5px;box-sizing:border;"], function (props) {
+})(["background:#000;width:100%;height:20px;position:fixed;top:100%;left:0px;transform:translateY(-20px);display:", ";color:#fff;font-size:12px;font-weight:200;align-items:center;z-index:10;padding-left:5px;box-sizing:border;"], function (props) {
   return props.visible ? 'flex' : 'none';
 });
 
 var BarDisplay = function BarDisplay() {
+  var sideBarState = (0,_redux_app_hooks__WEBPACK_IMPORTED_MODULE_1__.useAppSelector)(function (state) {
+    return state.detailBar;
+  });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(BarBase, {
-    visible: true
-  }, "ssssssssss");
+    visible: sideBarState.value.visible
+  }, sideBarState.value.msg);
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BarDisplay);
@@ -4152,7 +4174,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "store": () => (/* binding */ store)
 /* harmony export */ });
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 /* harmony import */ var _features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../features/scripts/scriptSlice */ "./src/redux/features/scripts/scriptSlice.ts");
 /* harmony import */ var _features_actions_actionSlice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../features/actions/actionSlice */ "./src/redux/features/actions/actionSlice.ts");
 /* harmony import */ var _features_events_eventSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../features/events/eventSlice */ "./src/redux/features/events/eventSlice.ts");
@@ -4160,6 +4182,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _features_dispatchTrigger_disableSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../features/dispatchTrigger/disableSlice */ "./src/redux/features/dispatchTrigger/disableSlice.ts");
 /* harmony import */ var _features_registered_registeredSlice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../features/registered/registeredSlice */ "./src/redux/features/registered/registeredSlice.ts");
 /* harmony import */ var _features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../features/registered/registerFormSlice */ "./src/redux/features/registered/registerFormSlice.ts");
+/* harmony import */ var _features_detailBar_detailBarSlice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../features/detailBar/detailBarSlice */ "./src/redux/features/detailBar/detailBarSlice.ts");
 
 
 
@@ -4168,7 +4191,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_7__.configureStore)({
+
+var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_8__.configureStore)({
   reducer: {
     actions: _features_actions_actionSlice__WEBPACK_IMPORTED_MODULE_1__["default"],
     scripts: _features_scripts_scriptSlice__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -4176,7 +4200,8 @@ var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_7__.configureStore)({
     dispatchTrigger: _features_dispatchTrigger_TriggerSlice__WEBPACK_IMPORTED_MODULE_3__["default"],
     disablePanel: _features_dispatchTrigger_disableSlice__WEBPACK_IMPORTED_MODULE_4__["default"],
     registeredData: _features_registered_registeredSlice__WEBPACK_IMPORTED_MODULE_5__["default"],
-    registerForm: _features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_6__["default"]
+    registerForm: _features_registered_registerFormSlice__WEBPACK_IMPORTED_MODULE_6__["default"],
+    detailBar: _features_detailBar_detailBarSlice__WEBPACK_IMPORTED_MODULE_7__["default"]
   }
 });
 
@@ -4192,6 +4217,7 @@ var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_7__.configureStore)({
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "loadActions": () => (/* binding */ loadActions),
+/* harmony export */   "setAction": () => (/* binding */ setAction),
 /* harmony export */   "actions": () => (/* binding */ actions),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -4228,12 +4254,67 @@ var actionSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createSlice)(
     }
   }
 });
-var loadActions = actionSlice.actions.loadActions;
+var _actionSlice$actions = actionSlice.actions,
+    loadActions = _actionSlice$actions.loadActions,
+    setAction = _actionSlice$actions.setAction;
 
 var actions = function actions(state) {
   return state.actions;
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (actionSlice.reducer);
+
+/***/ }),
+
+/***/ "./src/redux/features/detailBar/detailBarSlice.ts":
+/*!********************************************************!*\
+  !*** ./src/redux/features/detailBar/detailBarSlice.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "enterArea": () => (/* binding */ enterArea),
+/* harmony export */   "leaveArea": () => (/* binding */ leaveArea),
+/* harmony export */   "detailBar": () => (/* binding */ detailBar),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+
+var initialState = {
+  value: {
+    msg: '',
+    visible: false
+  }
+};
+var detailBarSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice)({
+  name: 'detailBar',
+  initialState: initialState,
+  reducers: {
+    enterArea: function enterArea(state, action) {
+      state.value = _objectSpread({}, action.payload);
+    },
+    leaveArea: function leaveArea(state, action) {
+      state.value.visible = false;
+    }
+  }
+});
+var _detailBarSlice$actio = detailBarSlice.actions,
+    enterArea = _detailBarSlice$actio.enterArea,
+    leaveArea = _detailBarSlice$actio.leaveArea;
+
+var detailBar = function detailBar(state) {
+  return state.detailBar;
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (detailBarSlice.reducer);
 
 /***/ }),
 
@@ -4323,14 +4404,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
 /* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var _fileSystem_registerAIEvent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../fileSystem/registerAIEvent */ "./src/fileSystem/registerAIEvent.js");
 
 
-var eventList = ['AI Art Selection Changed Notifier', 'AI Current Layer Notifier', 'AI Layer Deletion Notifier', 'AI Layer Set Notifier', 'AI Layer Options Notifier', 'AI Edit Layer List Changed Notifier', 'AI Command Notifier: Before Open', 'AI Command Notifier: After Open', 'AI Command Notifier: Before Close', 'AI Command Notifier: After Close'];
+
+/*
+const eventList = [
+  'AI Art Selection Changed Notifier',
+  'AI Current Layer Notifier',
+  'AI Layer Deletion Notifier',
+  'AI Layer Set Notifier',
+  'AI Layer Options Notifier',
+  'AI Edit Layer List Changed Notifier',
+  'AI Command Notifier: Before Open',
+  'AI Command Notifier: After Open',
+  'AI Command Notifier: Before Close',
+  'AI Command Notifier: After Close'
+];
+*/
+
 var initialState = {
-  value: [].concat(eventList)
+  value: _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(_fileSystem_registerAIEvent__WEBPACK_IMPORTED_MODULE_1__.aiEvents)
 };
-var eventSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice)({
+var eventSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createSlice)({
   name: 'events',
   initialState: initialState,
   reducers: {
@@ -44193,6 +44290,7 @@ const callDialog = () => cep.fs.showOpenDialog(true,false,`open`,dirDesktop,['js
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "aiEvents": () => (/* binding */ aiEvents),
 /* harmony export */   "registerAiEvent": () => (/* binding */ registerAiEvent),
 /* harmony export */   "removeAiEvent": () => (/* binding */ removeAiEvent)
 /* harmony export */ });
@@ -44201,13 +44299,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const aiEvents = Object.values(AIEvent);
+
 const setMethod = async eventData => {
-    if(eventData.type === 'action'){
-        await (0,_init__WEBPACK_IMPORTED_MODULE_1__.writeDebugData)({func:'callAction', arg: eventData.dispatch});
-        await (0,_callJsx__WEBPACK_IMPORTED_MODULE_0__.callAction)({func:'callAction', arg: eventData.dispatch});
-    }else{
-        await (0,_callJsx__WEBPACK_IMPORTED_MODULE_0__.callJsx)(eventData.dispatch.path);
-    }
+  removeAiEvent(eventData);
+  if(eventData.type === 'action'){
+      await (0,_init__WEBPACK_IMPORTED_MODULE_1__.writeDebugData)({func:'callAction', arg: eventData.dispatch});
+      await (0,_callJsx__WEBPACK_IMPORTED_MODULE_0__.callAction)({func:'callAction', arg: eventData.dispatch});
+  }else{
+      await (0,_callJsx__WEBPACK_IMPORTED_MODULE_0__.callJsx)(eventData.dispatch.path);
+  }
+  registerAiEvent(eventData);
 }
 
 /**
@@ -44215,11 +44317,11 @@ const setMethod = async eventData => {
  * @param {eventData}
  * @type {event: string,type: ProcessType,dispatch: ActionSet | ScriptObj}
  */ 
+
 const registerAiEvent = eventData => {
     AIEventAdapter.getInstance().addEventListener(
-        eventData.event,
+      eventData.event,
       function (e) {
-        console.log(e);
         setMethod(eventData);
       }
     );
@@ -44227,9 +44329,8 @@ const registerAiEvent = eventData => {
 
 const removeAiEvent = eventData => {
     AIEventAdapter.getInstance().removeEventListener(
-        eventData.event,
+      eventData.event,
       function (e) {
-        console.log(e);
         setMethod(eventData);
       }
     );

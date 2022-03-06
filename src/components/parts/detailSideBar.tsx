@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useAppSelector } from '../../redux/app/hooks';
 
 const BarBase = styled.div<{visible:boolean}>`
     background: #000;
@@ -8,7 +9,7 @@ const BarBase = styled.div<{visible:boolean}>`
     position: fixed;
     top: 100%;
     left: 0px;
-    transform: translateY(-30px);
+    transform: translateY(-20px);
     display:${props => props.visible ? 'flex' : 'none'};
     color: #fff;
     font-size: 12px;
@@ -20,9 +21,10 @@ const BarBase = styled.div<{visible:boolean}>`
 `;
 
 const BarDisplay = () => {
+  const sideBarState = useAppSelector(state => state.detailBar);
   return (
-      <BarBase visible={true}>
-        ssssssssss
+      <BarBase visible={sideBarState.value.visible}>
+        {sideBarState.value.msg}
       </BarBase>
   )
 };

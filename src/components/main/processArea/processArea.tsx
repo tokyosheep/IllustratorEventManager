@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import { setAction } from '../../../redux/features/actions/actionSlice';
 import { selectType, selectScript, selectActionSet, selectAction } from '../../../redux/features/registered/registerFormSlice';
 import { StdRadioBox } from '../../parts/radio';
 import { Selector } from '../../parts/Selector';
@@ -37,6 +38,7 @@ const ProcessArea = () => {
     const targetActions = actionSets.sets.find(se => se.setName === set);
     if (targetActions === undefined) return;
     dispatch(selectActionSet({ set, action: targetActions.actions[0] }));
+    dispatch(setAction(targetActions.actions));
   }, [registerForm]);
   const selectActionName = useCallback((ac) => {
     dispatch(selectAction(ac));

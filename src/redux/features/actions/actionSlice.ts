@@ -36,7 +36,7 @@ const actionSlice = createSlice({
   }
 });
 
-export const { loadActions } = actionSlice.actions;
+export const { loadActions, setAction } = actionSlice.actions;
 
 export const actions = (state:RootState) => state.actions;
 

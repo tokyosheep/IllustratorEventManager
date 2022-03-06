@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
+import { aiEvents } from '../../../fileSystem/registerAIEvent';
 
+/*
 const eventList = [
   'AI Art Selection Changed Notifier',
   'AI Current Layer Notifier',
@@ -13,13 +15,14 @@ const eventList = [
   'AI Command Notifier: Before Close',
   'AI Command Notifier: After Close'
 ];
+*/
 
 interface EventState {
   value:string[]
 }
 
 const initialState:EventState = {
-  value: [...eventList]
+  value: [...aiEvents]
 };
 
 const eventSlice = createSlice({
