@@ -1,6 +1,13 @@
 (function(){
-    var getPath = app.path + "/Presets.localized";
-    var PresetsPath = new Folder(getPath);
+    function isPresetFolder(folderName){
+        var getPath = app.path + "/" + folderName;
+        var PresetsPath = new Folder(getPath);
+        var folder = PresetsPath.getFiles();
+        return folder.length === 0 ? null : PresetsPath;
+    }
+    var folderNames = ["/Presets","/Presets.localized"]
+    var PresetsPath = isPresetFolder(folderNames[0]) || isPresetFolder(folderNames[1]);
+    if(!PresetsPath)return [];
     var fileList = [];
     getFilesFromPath(PresetsPath);
     return JSON.stringify(fileList);

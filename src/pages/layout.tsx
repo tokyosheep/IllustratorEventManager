@@ -13,6 +13,7 @@ import NavButtons from '../components/nav/navButtons';
 import { MainContainer } from '../styles/containers';
 import { useAppDispatch } from '../redux/app/hooks';
 import { addScripts } from '../redux/features/scripts/scriptSlice';
+import BarDisplay from '../components/parts/detailSideBar';
 
 const { Container } = MainContainer;
 
@@ -44,6 +45,7 @@ const Layout = () => {
   return (
     <>
       <CoverLayer />
+      <BarDisplay />
       <Container>
         <Header />
         <MainSwitch />
