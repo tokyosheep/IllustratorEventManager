@@ -955,6 +955,8 @@ object-assign
 
 // available, otherwise a store update may happen between render and the effect,
 
+// await writeDebugData({func:'callAction', arg: eventData.dispatch});
+
 // blue case
 
 // call invoke immediately, without waiting on a callback to fire,

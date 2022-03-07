@@ -6,7 +6,7 @@ export const aiEvents = Object.values(AIEvent);
 const setMethod = async eventData => {
   removeAiEvent(eventData);
   if(eventData.type === 'action'){
-      await writeDebugData({func:'callAction', arg: eventData.dispatch});
+      // await writeDebugData({func:'callAction', arg: eventData.dispatch});
       await callAction({func:'callAction', arg: eventData.dispatch});
   }else{
       await callJsx(eventData.dispatch.path);

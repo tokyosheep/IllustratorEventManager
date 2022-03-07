@@ -15,7 +15,7 @@ const polyFillFolder = `${extensionRoot}/polyFill`;
 */
 
 export const hostAppPath = csInterface.getSystemPath(SystemPath.HOST_APPLICATION);
-const debug = true;
+const debug = false;
 
 export const writeDebugData = obj =>{
     if(!debug)return;
