@@ -1,0 +1,29 @@
+# IllustratorEventManager
+
+I developed Extension to managemnt event on Illustrator like Photoshop script event manager.
+I refered to Photoshop event manager. so this is similar with it.
+but Illustrator doen't have event system like Photoshop.
+so I use AIHostAdapter plugin. [you can get from here](https://github.com/Adobe-CEP/CEP-Resources/tree/master/CEP_11.x/AIHostAdapter)
+
+![panel](./readmeImg/panel.jpg)
+
+## How install it
+
+first you need AIHostAdapter plugin.
+if you don't have, get it and save in plugin folder
+
+on Mac OS directory is like this
+application -> Illustrator folder -> plugin
+
+and install this Extension zxp or clone git.
+
+## How to use it
+
+it almost same with Photoshop script event manager.
+select event , and action or script , and register it.
+push the dispatch button , it watches your activity and detective event you chose.
+
+1. **preset**
+you can save preset you registered. and you can load it later.
+
+
