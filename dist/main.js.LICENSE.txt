@@ -1,0 +1,1186 @@
+/*
+ * This is a dummy function to check if the function name has been altered by minification.
+ * If the function has been minified and NODE_ENV !== 'production', warn the user.
+ */
+
+/*
+ Modernizr 3.0.0pre (Custom Build) | MIT
+*/
+
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+/* ::<number | string, string, string> */
+
+/* Z+1 */
+
+/* eslint-disable no-unused-vars */
+
+/* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+
+/* harmony default export */
+
+/* n */
+
+/* o */
+
+/* webpack/runtime/compat get default export */
+
+/*#__PURE__*/
+
+/**
+       * The minimal observable subscription method.
+       * @param {Object} observer Any object that can be used as an observer.
+       * The observer object should have a `next` method.
+       * @returns {subscription} An object with an `unsubscribe` method that can
+       * be used to unsubscribe the observable from the store, and prevent further
+       * emission of values from the observable.
+       */
+
+/**
+   * Adds a change listener. It will be called any time an action is dispatched,
+   * and some part of the state tree may potentially have changed. You may then
+   * call `getState()` to read the current state tree inside the callback.
+   *
+   * You may call `dispatch()` from a change listener, with the following
+   * caveats:
+   *
+   * 1. The subscriptions are snapshotted just before every `dispatch()` call.
+   * If you subscribe or unsubscribe while the listeners are being invoked, this
+   * will not have any effect on the `dispatch()` that is currently in progress.
+   * However, the next `dispatch()` call, whether nested or not, will use a more
+   * recent snapshot of the subscription list.
+   *
+   * 2. The listener should not expect to see all state changes, as the state
+   * might have been updated multiple times during a nested `dispatch()` before
+   * the listener is called. It is, however, guaranteed that all subscribers
+   * registered before the `dispatch()` started will be called with the latest
+   * state by the time it exits.
+   *
+   * @param {Function} listener A callback to be invoked on every dispatch.
+   * @returns {Function} A function to remove this change listener.
+   */
+
+/**
+   * Dispatches an action. It is the only way to trigger a state change.
+   *
+   * The `reducer` function, used to create the store, will be called with the
+   * current state tree and the given `action`. Its return value will
+   * be considered the **next** state of the tree, and the change listeners
+   * will be notified.
+   *
+   * The base implementation only supports plain object actions. If you want to
+   * dispatch a Promise, an Observable, a thunk, or something else, you need to
+   * wrap your store creating function into the corresponding middleware. For
+   * example, see the documentation for the `redux-thunk` package. Even the
+   * middleware will eventually dispatch plain object actions using this method.
+   *
+   * @param {Object} action A plain object representing “what changed”. It is
+   * a good idea to keep actions serializable so you can record and replay user
+   * sessions, or use the time travelling `redux-devtools`. An action must have
+   * a `type` property which may not be `undefined`. It is a good idea to use
+   * string constants for action types.
+   *
+   * @returns {Object} For convenience, the same action object you dispatched.
+   *
+   * Note that, if you use a custom middleware, it may wrap `dispatch()` to
+   * return something else (for example, a Promise you can await).
+   */
+
+/**
+   * Interoperability point for observable/reactive libraries.
+   * @returns {observable} A minimal observable of state changes.
+   * For more information, see the observable proposal:
+   * https://github.com/tc39/proposal-observable
+   */
+
+/**
+   * Reads the state tree managed by the store.
+   *
+   * @returns {any} The current state tree of your application.
+   */
+
+/**
+   * Replaces the reducer currently used by the store to calculate the state.
+   *
+   * You might need this if your app implements code splitting and you want to
+   * load some of the reducers dynamically. You might also need this if you
+   * implement a hot reloading mechanism for Redux.
+   *
+   * @param {Function} nextReducer The reducer for the store to use instead.
+   * @returns {void}
+   */
+
+/**
+   * This makes a shallow copy of currentListeners so we can use
+   * nextListeners as a temporary list while dispatching.
+   *
+   * This prevents any bugs around consumers calling
+   * subscribe/unsubscribe in the middle of a dispatch.
+   */
+
+/**
+ * @param {any} obj The object to inspect.
+ * @returns {boolean} True if the argument appears to be a plain object.
+ */
+
+/**
+ * A hook to access the redux `dispatch` function.
+ *
+ * @returns {any|function} redux store's `dispatch` function
+ *
+ * @example
+ *
+ * import React, { useCallback } from 'react'
+ * import { useDispatch } from 'react-redux'
+ *
+ * export const CounterComponent = ({ value }) => {
+ *   const dispatch = useDispatch()
+ *   const increaseCounter = useCallback(() => dispatch({ type: 'increase-counter' }), [])
+ *   return (
+ *     <div>
+ *       <span>{value}</span>
+ *       <button onClick={increaseCounter}>Increase counter</button>
+ *     </div>
+ *   )
+ * }
+ */
+
+/**
+ * A hook to access the redux store's state. This hook takes a selector function
+ * as an argument. The selector is called with the store state.
+ *
+ * This hook takes an optional equality comparison function as the second parameter
+ * that allows you to customize the way the selected state is compared to determine
+ * whether the component needs to be re-rendered.
+ *
+ * @param {Function} selector the selector function
+ * @param {Function=} equalityFn the function that will be used to determine equality
+ *
+ * @returns {any} the selected state
+ *
+ * @example
+ *
+ * import React from 'react'
+ * import { useSelector } from 'react-redux'
+ *
+ * export const CounterComponent = () => {
+ *   const counter = useSelector(state => state.counter)
+ *   return <div>{counter}</div>
+ * }
+ */
+
+/**
+ * A hook to access the redux store.
+ *
+ * @returns {any} the redux store
+ *
+ * @example
+ *
+ * import React from 'react'
+ * import { useStore } from 'react-redux'
+ *
+ * export const ExampleComponent = () => {
+ *   const store = useStore()
+ *   return <div>{store.getState()}</div>
+ * }
+ */
+
+/**
+ * A hook to access the value of the `ReactReduxContext`. This is a low-level
+ * hook that you should usually not need to call directly.
+ *
+ * @returns {any} the value of the `ReactReduxContext`
+ *
+ * @example
+ *
+ * import React from 'react'
+ * import { useReduxContext } from 'react-redux'
+ *
+ * export const CounterComponent = ({ value }) => {
+ *   const { store } = useReduxContext()
+ *   return <div>{store.getState()}</div>
+ * }
+ */
+
+/**
+ * Adapted from React: https://github.com/facebook/react/blob/master/packages/shared/formatProdErrorMessage.js
+ *
+ * Do not require this module directly! Use normal throw error calls. These messages will be replaced with error codes
+ * during build.
+ * @param {number} code
+ */
+
+/**
+ * Changes the hue of the color. Hue is a number between 0 to 360. The first
+ * argument for adjustHue is the amount of degrees the color is rotated around
+ * the color wheel, always producing a positive hue value.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: adjustHue(180, '#448'),
+ *   background: adjustHue('180', 'rgba(101,100,205,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${adjustHue(180, '#448')};
+ *   background: ${adjustHue('180', 'rgba(101,100,205,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ * element {
+ *   background: "#888844";
+ *   background: "rgba(136,136,68,0.7)";
+ * }
+ */
+
+/**
+ * Checks if a string is a CSS named color and returns its equivalent hex value, otherwise returns the original color.
+ * @private
+ */
+
+/**
+ * Composes single-argument functions from right to left. The rightmost
+ * function can take multiple arguments as it provides the signature for
+ * the resulting composite function.
+ *
+ * @param {...Function} funcs The functions to compose.
+ * @returns {Function} A function obtained by composing the argument functions
+ * from right to left. For example, compose(f, g, h) is identical to doing
+ * (...args) => f(g(h(...args))).
+ */
+
+/**
+ * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.
+ * This util is useful in case you only know on runtime which color object is
+ * used. Otherwise we recommend to rely on `rgb`, `rgba`, `hsl` or `hsla`.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: toColorString({ red: 255, green: 205, blue: 100 }),
+ *   background: toColorString({ red: 255, green: 205, blue: 100, alpha: 0.72 }),
+ *   background: toColorString({ hue: 240, saturation: 1, lightness: 0.5 }),
+ *   background: toColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 }),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${toColorString({ red: 255, green: 205, blue: 100 })};
+ *   background: ${toColorString({ red: 255, green: 205, blue: 100, alpha: 0.72 })};
+ *   background: ${toColorString({ hue: 240, saturation: 1, lightness: 0.5 })};
+ *   background: ${toColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 })};
+ * `
+ *
+ * // CSS in JS Output
+ * element {
+ *   background: "#ffcd64";
+ *   background: "rgba(255,205,100,0.72)";
+ *   background: "#00f";
+ *   background: "rgba(179,25,25,0.72)";
+ * }
+ */
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+
+/**
+ * Create an error file out of errors.md for development and a simple web link to the full errors
+ * in production mode.
+ * @private
+ */
+
+/**
+ * Creates a Redux store that holds the state tree.
+ * The only way to change the data in the store is to call `dispatch()` on it.
+ *
+ * There should only be a single store in your app. To specify how different
+ * parts of the state tree respond to actions, you may combine several reducers
+ * into a single reducer function by using `combineReducers`.
+ *
+ * @param {Function} reducer A function that returns the next state tree, given
+ * the current state tree and the action to handle.
+ *
+ * @param {any} [preloadedState] The initial state. You may optionally specify it
+ * to hydrate the state from the server in universal apps, or to restore a
+ * previously serialized user session.
+ * If you use `combineReducers` to produce the root reducer function, this must be
+ * an object with the same shape as `combineReducers` keys.
+ *
+ * @param {Function} [enhancer] The store enhancer. You may optionally specify it
+ * to enhance the store with third-party capabilities such as middleware,
+ * time travel, persistence, etc. The only store enhancer that ships with Redux
+ * is `applyMiddleware()`.
+ *
+ * @returns {Store} A Redux store that lets you read the state, dispatch actions
+ * and subscribe to changes.
+ */
+
+/**
+ * Creates a store enhancer that applies middleware to the dispatch method
+ * of the Redux store. This is handy for a variety of tasks, such as expressing
+ * asynchronous actions in a concise manner, or logging every action payload.
+ *
+ * See `redux-thunk` package as an example of the Redux middleware.
+ *
+ * Because middleware is potentially asynchronous, this should be the first
+ * store enhancer in the composition chain.
+ *
+ * Note that each middleware will be given the `dispatch` and `getState` functions
+ * as named arguments.
+ *
+ * @param {...Function} middlewares The middleware chain to be applied.
+ * @returns {Function} A store enhancer applying the middleware.
+ */
+
+/**
+ * Hook factory, which creates a `useDispatch` hook bound to a given context.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useDispatch` hook bound to the specified context.
+ */
+
+/**
+ * Hook factory, which creates a `useSelector` hook bound to a given context.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useSelector` hook bound to the specified context.
+ */
+
+/**
+ * Hook factory, which creates a `useStore` hook bound to a given context.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useStore` hook bound to the specified context.
+ */
+
+/**
+ * Prints a warning in the console if it exists.
+ *
+ * @param {String} message The warning message.
+ * @returns {void}
+ */
+
+/**
+ * Reduces hex values if possible e.g. #ff8866 to #f86
+ * @private
+ */
+
+/**
+ * Returns a string value for the color. The returned result is the smallest possible hex notation.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: hsl(359, 0.75, 0.4),
+ *   background: hsl({ hue: 360, saturation: 0.75, lightness: 0.4 }),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${hsl(359, 0.75, 0.4)};
+ *   background: ${hsl({ hue: 360, saturation: 0.75, lightness: 0.4 })};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "#b3191c";
+ *   background: "#b3191c";
+ * }
+ */
+
+/**
+ * Returns a string value for the color. The returned result is the smallest possible hex notation.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: rgb(255, 205, 100),
+ *   background: rgb({ red: 255, green: 205, blue: 100 }),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${rgb(255, 205, 100)};
+ *   background: ${rgb({ red: 255, green: 205, blue: 100 })};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "#ffcd64";
+ *   background: "#ffcd64";
+ * }
+ */
+
+/**
+ * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: hsla(359, 0.75, 0.4, 0.7),
+ *   background: hsla({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0,7 }),
+ *   background: hsla(359, 0.75, 0.4, 1),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${hsla(359, 0.75, 0.4, 0.7)};
+ *   background: ${hsla({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0,7 })};
+ *   background: ${hsla(359, 0.75, 0.4, 1)};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "rgba(179,25,28,0.7)";
+ *   background: "rgba(179,25,28,0.7)";
+ *   background: "#b3191c";
+ * }
+ */
+
+/**
+ * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
+ *
+ * Can also be used to fade a color by passing a hex value or named CSS color along with an alpha value.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: rgba(255, 205, 100, 0.7),
+ *   background: rgba({ red: 255, green: 205, blue: 100, alpha: 0.7 }),
+ *   background: rgba(255, 205, 100, 1),
+ *   background: rgba('#ffffff', 0.4),
+ *   background: rgba('black', 0.7),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${rgba(255, 205, 100, 0.7)};
+ *   background: ${rgba({ red: 255, green: 205, blue: 100, alpha: 0.7 })};
+ *   background: ${rgba(255, 205, 100, 1)};
+ *   background: ${rgba('#ffffff', 0.4)};
+ *   background: ${rgba('black', 0.7)};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "rgba(255,205,100,0.7)";
+ *   background: "rgba(255,205,100,0.7)";
+ *   background: "#ffcd64";
+ *   background: "rgba(255,255,255,0.4)";
+ *   background: "rgba(0,0,0,0.7)";
+ * }
+ */
+
+/**
+ * Returns a string value for the darkened color.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: darken(0.2, '#FFCD64'),
+ *   background: darken('0.2', 'rgba(255,205,100,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${darken(0.2, '#FFCD64')};
+ *   background: ${darken('0.2', 'rgba(255,205,100,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "#ffbd31";
+ *   background: "rgba(255,189,49,0.7)";
+ * }
+ */
+
+/**
+ * Returns an HslColor or HslaColor object. This utility function is only useful
+ * if want to extract a color component. With the color util `toColorString` you
+ * can convert a HslColor or HslaColor object back to a string.
+ *
+ * @example
+ * // Assigns `{ hue: 0, saturation: 1, lightness: 0.5 }` to color1
+ * const color1 = parseToHsl('rgb(255, 0, 0)');
+ * // Assigns `{ hue: 128, saturation: 1, lightness: 0.5, alpha: 0.75 }` to color2
+ * const color2 = parseToHsl('hsla(128, 100%, 50%, 0.75)');
+ */
+
+/**
+ * Returns an RgbColor or RgbaColor object. This utility function is only useful
+ * if want to extract a color component. With the color util `toColorString` you
+ * can convert a RgbColor or RgbaColor object back to a string.
+ *
+ * @example
+ * // Assigns `{ red: 255, green: 0, blue: 0 }` to color1
+ * const color1 = parseToRgb('rgb(255, 0, 0)');
+ * // Assigns `{ red: 92, green: 102, blue: 112, alpha: 0.75 }` to color2
+ * const color2 = parseToRgb('hsla(210, 10%, 40%, 0.75)');
+ */
+
+/**
+ * These are private action types reserved by Redux.
+ * For any unknown actions, you must return the current state.
+ * If the current state is undefined, you must return the initial state.
+ * Do not reference these action types directly in your code.
+ */
+
+/**
+ * Turns an object whose values are different reducer functions, into a single
+ * reducer function. It will call every child reducer, and gather their results
+ * into a single state object, whose keys correspond to the keys of the passed
+ * reducer functions.
+ *
+ * @param {Object} reducers An object whose values correspond to different
+ * reducer functions that need to be combined into one. One handy way to obtain
+ * it is to use ES6 `import * as reducers` syntax. The reducers may never return
+ * undefined for any action. Instead, they should return their initial state
+ * if the state passed to them was undefined, and the current state for any
+ * unrecognized action.
+ *
+ * @returns {Function} A reducer function that invokes every reducer inside the
+ * passed object, and builds a state object with the same shape.
+ */
+
+/**
+ * register Illustrator event
+ * @param {eventData}
+ * @type {event: string,type: ProcessType,dispatch: ActionSet | ScriptObj}
+ */
+
+/** @class */
+
+/** @license React v0.20.2
+ * scheduler.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v16.13.1
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v17.0.2
+ * react-dom.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v17.0.2
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v17.0.2
+ * react.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** A function that accepts a potential "extra argument" value to be injected later,
+ * and returns an instance of the thunk middleware that uses that value
+ */
+
+/************************************************************************/
+
+/******/
+
+/***/
+
+//
+
+// "consumed" by the delegate iterator. If context.method was
+
+// "return" to "throw", let that override the TypeError below.
+
+// "return", allow the original .return call to continue in the
+
+// .constructor.prototype properties for functions that return Generator
+
+// .throw, and .return (see defineIteratorMethods).
+
+// .throw, and .return methods.
+
+// @@iterator function is called on it. Some browsers' implementations of the
+
+// A .throw or .return when the delegate iterator has no .throw
+
+// A Generator should always return itself as the iterator object when the
+
+// Allow injecting another batching function later
+
+// Any reducers that existed in both the new and old rootReducer
+
+// Assign the result of the finished delegate to the temporary
+
+// AsyncIterator objects; they just return a Promise for the value of
+
+// Attach the factory function so users can create a customized version
+
+// Avoid calling selector multiple times if the store's state has not changed
+
+// Avoid failures from read-only properties
+
+// Avoid propagating failures to Promises returned by later
+
+// Be forgiving, per 25.3.3.3.3 of the spec:
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/construct.js
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/isNativeFunction.js
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/isNativeReflectConstruct.js
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/wrapNativeSuper.js
+
+// CONCATENATED MODULE: ./node_modules/@emotion/is-prop-valid/dist/is-prop-valid.esm.js
+
+// CONCATENATED MODULE: ./node_modules/@emotion/memoize/dist/memoize.esm.js
+
+// CONCATENATED MODULE: ./node_modules/@emotion/stylis/dist/stylis.esm.js
+
+// CONCATENATED MODULE: ./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js
+
+// CONCATENATED MODULE: ./node_modules/immer/dist/immer.esm.js
+
+// CONCATENATED MODULE: ./node_modules/react-redux/es/components/Provider.js
+
+// CONCATENATED MODULE: ./node_modules/react-redux/es/hooks/useDispatch.js
+
+// CONCATENATED MODULE: ./node_modules/react-redux/es/hooks/useReduxContext.js
+
+// CONCATENATED MODULE: ./node_modules/react-redux/es/hooks/useStore.js
+
+// CONCATENATED MODULE: ./node_modules/react-redux/es/index.js
+
+// CONCATENATED MODULE: ./node_modules/react-redux/es/utils/Subscription.js
+
+// CONCATENATED MODULE: ./node_modules/react-redux/es/utils/batch.js
+
+// CONCATENATED MODULE: ./node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.js
+
+// CONCATENATED MODULE: ./node_modules/redux-thunk/es/index.js
+
+// CONCATENATED MODULE: ./node_modules/redux/es/redux.js
+
+// CONCATENATED MODULE: ./node_modules/styled-components/dist/styled-components.esm.js
+
+// CONCATENATED MODULE: ./src/components/listening/listening.tsx
+
+// CONCATENATED MODULE: ./src/components/main/mainRegisterForm.tsx
+
+// CONCATENATED MODULE: ./src/components/nav/navButtons.tsx
+
+// CONCATENATED MODULE: ./src/components/nav/scriptWrapper.tsx
+
+// CONCATENATED MODULE: ./src/components/parts/buttons.tsx
+
+// CONCATENATED MODULE: ./src/components/parts/detailSideBar.tsx
+
+// CONCATENATED MODULE: ./src/components/registeredArea/registeredList.tsx
+
+// CONCATENATED MODULE: ./src/fileSystem/connectHostScript.ts
+
+// CONCATENATED MODULE: ./src/fileSystem/getAction.ts
+
+// CONCATENATED MODULE: ./src/fileSystem/init.js
+
+// CONCATENATED MODULE: ./src/fileSystem/registerAIEvent.js
+
+// CONCATENATED MODULE: ./src/fileSystem/saveAndloadData.ts
+
+// CONCATENATED MODULE: ./src/main.tsx
+
+// CONCATENATED MODULE: ./src/pages/Layout.tsx
+
+// CONCATENATED MODULE: ./src/redux/app/store.ts
+
+// CONCATENATED MODULE: ./src/redux/features/actions/actionSlice.ts
+
+// CONCATENATED MODULE: ./src/redux/features/detailBar/detailBarSlice.ts
+
+// CONCATENATED MODULE: ./src/redux/features/dispatchTrigger/TriggerSlice.ts
+
+// CONCATENATED MODULE: ./src/redux/features/dispatchTrigger/disableSlice.ts
+
+// CONCATENATED MODULE: ./src/redux/features/registered/registerFormSlice.ts
+
+// CONCATENATED MODULE: ./src/redux/features/registered/registeredSlice.ts
+
+// CONCATENATED MODULE: ./src/styles/mixin.ts
+
+// CONCATENATED MODULE: ./src/styles/titles.ts
+
+// CONCATENATED MODULE: external "fs"
+
+// CONCATENATED MODULE: external "path"
+
+// CSP to forbid Function, and you're not willing to fix either of those
+
+// Call delegate.iterator[context.method](context.arg) and handle the
+
+// Check if module is in cache
+
+// Create a new module (and put it into the cache)
+
+// DCE check should happen before ReactDOM bundle executes so that
+
+// Default to a dummy "batch" implementation that just runs the callback
+
+// Define Generator.prototype.{next,throw,return} in terms of the
+
+// Define the unified helper method that is used to implement .next,
+
+// Deliberately forget the last sent value so that we don't
+
+// Detect buggy property enumeration order in older V8 versions.
+
+// DevTools can report bad minification during injection.
+
+// Dispatch the exception by looping back around to the
+
+// Dummy constructor functions that we use as the .constructor and
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/asyncToGenerator.js
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/slicedToArray.js
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/toConsumableArray.js
+
+// EXTERNAL MODULE: ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js
+
+// EXTERNAL MODULE: ./node_modules/react-dom/index.js
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+
+// Enable batched updates in our subscriptions for use
+
+// Exception thrown outside of any try block that could handle
+
+// Execute the module function
+
+// For the native GeneratorFunction constructor, the best we can
+
+// GenStateExecuting and loop back for another invocation.
+
+// Helper for defining the .next, .throw, and .return methods of the
+
+// IE 8 has a broken Object.defineProperty that only works on DOM objects.
+
+// If a rejected Promise was yielded, throw the rejection back
+
+// If an exception is thrown from innerFn, we leave state ===
+
+// If context.method was "throw" but the delegate handled the
+
+// If enqueue has been called before, then we want to wait until
+
+// If maybeInvokeDelegate(context) changed context.method from
+
+// If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+
+// If the delegate iterator has a return method, give it a
+
+// If the dispatched exception was caught by a catch block,
+
+// If this "action" is really a function, call it and return the result.
+
+// Ignore the finally entry if control is not jumping to a
+
+// Inlined / shortened version of `kindOf` from https://github.com/jonschlinkert/kind-of
+
+// Inlined version of the `symbol-observable` polyfill
+
+// Iterator interface in terms of a single ._invoke method.
+
+// Not sure about the optimal order of these conditions:
+
+// Note that simple async functions are implemented on top of
+
+// Note: At a later stage we can optimize this function as right now a hsl
+
+// Note: ["return"] must be used for ES3 parsing compatibility.
+
+// Otherwise, pass the action down the middleware chain as usual
+
+// Rather than returning an object with a next method, we keep
+
+// React currently throws a warning when using useLayoutEffect on the server.
+
+// React v16.11 and below
+
+// React v16.12 and above
+
+// Regardless of whether this script is executing as a CommonJS module
+
+// Resetting context._sent for legacy support of Babel's
+
+// Resume execution at the desired location (see delegateYield).
+
+// Return an iterator with no values.
+
+// Return the exports of the module
+
+// SVG-related properties
+
+// See https://github.com/facebook/regenerator/issues/274 for more details.
+
+// Setting context._sent for legacy support of Babel's
+
+// Test for A's keys different from B.
+
+// The ._invoke method unifies the implementations of the .next,
+
+// The context.catch method must only be called with a location
+
+// The delegate iterator is finished, so forget it and continue with
+
+// The module cache
+
+// The require function
+
+// The root entry object (effectively a try statement without a catch
+
+// The thunk middleware looks for any functions that were passed to `store.dispatch`.
+
+// This action has a similiar effect to ActionTypes.INIT.
+
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+
+// This environment has a native %IteratorPrototype%; use it instead
+
+// This is a polyfill for %IteratorPrototype% for environments that
+
+// This is used to make sure we don't warn about the same
+
+// This module should not be running in strict mode, so the above
+
+// To avoid creating an additional object, we just hang the .value
+
+// To get around it, we can conditionally useEffect on the server (no-op) and
+
+// Try/catch helper to minimize deoptimizations. Returns a completion
+
+// Type definitions taken from https://github.com/gcanti/flow-static-land/blob/master/src/Fun.js
+
+// Verify that the code above has been dead code eliminated (DCE'd).
+
+// We don't expect any of the above to throw, but better to be safe.
+
+// When a store is created, an "INIT" action is dispatched so that every
+
+// When a yielded Promise is resolved, its final value becomes
+
+// Within the body of any async function, `await x` is transformed to
+
+// `hasOwn.call(value, "__await")` to determine if the yielded value is
+
+// `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+
+// accidentally pass it on to the delegate.
+
+// achromatic
+
+// all previous Promises have been resolved before calling invoke,
+
+// already have an existing method we want to call, so there's no need
+
+// also ensures that the minifier will not anonymize the function.
+
+// ancestor components re-render before descendants
+
+// and .done properties off the next function object itself. This
+
+// any necessary setup in a predictable way. This predictability
+
+// argument that corresponds to a known catch block.
+
+// assignment should always work unless something is misconfigured. Just
+
+// async functions in terms of async generators, it is especially
+
+// available, otherwise a store update may happen between render and the effect,
+
+// blue case
+
+// call invoke immediately, without waiting on a callback to fire,
+
+// chance to clean up.
+
+// changed
+
+// color would be parsed converted to rgb values and converted back to hsl.
+
+// context.dispatchException(context.arg) call above.
+
+// context.method was "next", forget context.arg since it has been
+
+// current iteration.
+
+// define getter functions for harmony exports
+
+// delegate iterator, or by modifying context.method and context.arg,
+
+// do is to check its .name property.
+
+// don't hoist over string (html) components
+
+// don't natively support it.
+
+// encapsulates the subscription logic for connecting a component to the redux store, as
+
+// enqueue has not been called before, then it is important to
+
+// ensure latest selected state is reused so that a custom equality function can result in identical references
+
+// eslint-disable-line no-new-wrappers
+
+// eslint-disable-line no-redeclare
+
+// eslint-disable-next-line no-redeclare
+
+// eslint-disable-next-line no-unused-vars
+
+// eslint-disable-next-line prefer-rest-params
+
+// exception, let the outer generator proceed normally. If
+
+// execute code before the first await. Since we implement simple
+
+// executor callback, and why async functions synchronously
+
+// formulae from https://en.wikipedia.org/wiki/HSL_and_HSV
+
+// function.sent implementation.
+
+// getDefaultExport function for compatibility with non-harmony modules
+
+// has a stable shape and so hopefully should be cheap to allocate.
+
+// have been (and was previously) designed to take a closure to be
+
+// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+
+// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+
+// https://esbench.com/bench/5bfee68a4cd7e6009ef61d23
+
+// https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+
+// if a Content Security Policy forbids using Function, but in that case
+
+// important to get this right, even though it requires care.
+
+// in case runtime.js accidentally runs in strict mode, in modern engines
+
+// in every case, so we don't have to touch the arguments object. The
+
+// injected easily by `bin/regenerator --include-runtime script.js`.
+
+// into the async generator function so it can be handled there.
+
+// invocations of the iterator.
+
+// invoked without arguments, but in all the cases we care about we
+
+// is created synchronously, otherwise a store update may occur before the
+
+// is re-rendered, the selectors are called again, and
+
+// is why the Promise constructor synchronously invokes its
+
+// it, so set the completion value of the entire function to
+
+// iterator prototype chain incorrectly implement this, causing the Generator
+
+// keys multiple times.
+
+// location outside the try/catch block.
+
+// locations where there is no enclosing try statement.
+
+// make sure rgb are contained in a set of [0, 255]
+
+// meant to be awaited.
+
+// method always terminates the yield* loop.
+
+// minifier not to mangle the names of these two functions.
+
+// no module.id needed
+
+// no module.loaded needed
+
+// object to not be returned from this call. This ensures that doesn't happen.
+
+// objects. For full spec compliance, you may wish to configure your
+
+// of the polyfill.
+
+// only additional allocation required is the completion record, which
+
+// or a finally block) gives us a place to store values thrown from
+
+// or not, return the runtime object so that we can declare the variable
+
+// outer generator.
+
+// prettier-ignore
+
+// problems, please detail your unique predicament in a GitHub issue.
+
+// record like context.tryEntries[i].completion. This interface could
+
+// reducer returns their initial state. This effectively populates
+
+// regeneratorRuntime in the outer scope, which allows this module to be
+
+// result, either by returning a { value, done } result from the
+
+// setting context.delegate to null, and returning the ContinueSentinel.
+
+// so that results are always delivered in the correct order. If
+
+// so that the async generator function has the opportunity to do
+
+// src/configureStore.ts
+
+// src/createAction.ts
+
+// src/createReducer.ts
+
+// src/createSlice.ts
+
+// src/entities/entity_state.ts
+
+// src/getDefaultMiddleware.ts
+
+// src/immutableStateInvariantMiddleware.ts
+
+// src/index.ts
+
+// src/isPlainObject.ts
+
+// src/mapBuilders.ts
+
+// src/utils.ts
+
+// strict mode using a global Function call. This could conceivably fail
+
+// subscription callback always has the selector from the latest render commit
+
+// subscription is created and an inconsistent state may be observed
+
+// the .value of the Promise<{value,done}> result for the
+
+// the final result produced by the iterator.
+
+// the initial state tree.
+
+// the method takes exactly one argument, since that happens to be true
+
+// the new state tree with any relevant data from the old one.
+
+// the outer generator.
+
+// the proper solution is to fix the accidental strict mode problem. If
+
+// then let that catch block handle the exception normally.
+
+// things simple and return the next function itself.
+
+// throw the exception.
+
+// to create a new function object. We can even get away with assuming
+
+// unified ._invoke helper method.
+
+// useLayoutEffect in the browser. We need useLayoutEffect to ensure the store
+
+// variable specified by delegate.resultName (see delegateYield).
+
+// we can explicitly access globalThis. In older engines we can escape
+
+// we ignore all errors here, since when the component
+
+// webpackBootstrap
+
+// well as nesting subscriptions of descendant components, so that we can ensure the
+
+// which may cause missed updates; we also must ensure the store subscription
+
+// will receive the previous state. This effectively populates
+
+// will throw again, if neither props nor store state
+
+// with standard React renderers (ReactDOM, React Native)
+
+// with whatever "extra arg" they want to inject into their thunks
+
+// you've misconfigured your bundler to force strict mode and applied a
+
+//# sourceMappingURL=immer.esm.js.map
+
+//# sourceMappingURL=redux-toolkit.esm.js.map
+
+//# sourceMappingURL=styled-components.esm.js.map
+
+//await loadJsx(jsxParts);
+
+//await loadJsx(polyFillFolder);
+
+//json2読み込み
