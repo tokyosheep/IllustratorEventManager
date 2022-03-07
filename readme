@@ -26,4 +26,10 @@ push the dispatch button , it watches your activity and detective event you chos
 1. **preset**
 you can save preset you registered. and you can load it later.
 
+2. **events**
+plugin has tons of events. but actually I don't grasp all of events. but you can see how each event work [here](https://gist.github.com/tokyosheep/b5d6aa71821138c2d788258e0758c821)
+
+as I said still I don't grasp all of events so before use it , so I suggest testing before use for your work.
+I can't guarantee to works accurately.
+
 

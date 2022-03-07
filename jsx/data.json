@@ -1,1 +1,1 @@
-{"func":"callAction","arg":{"set":"セット1","action":"rotate"}}
+{"func":"callAction","arg":{"set":"rotate","action":"rotate90"}}

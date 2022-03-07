@@ -44223,8 +44223,11 @@ const saveJsonRoot = csInterface.getSystemPath(SystemPath.EXTENSION) +`/savedata
 
 const dir_home = process.env[process.platform == `win32` ? `USERPROFILE` : `HOME`];
 const dirDesktop = path__WEBPACK_IMPORTED_MODULE_1___default().join(dir_home, `Desktop`);//デスクトップパス
+
+/*
 const jsxParts = `${extensionRoot}/jsxParts`;
 const polyFillFolder = `${extensionRoot}/polyFill`;
+*/
 
 const hostAppPath = csInterface.getSystemPath(SystemPath.HOST_APPLICATION);
 const debug = true;
@@ -44234,16 +44237,17 @@ const writeDebugData = obj =>{
     fs__WEBPACK_IMPORTED_MODULE_0___default().writeFileSync(`${extensionRoot}/data.json`,JSON.stringify(obj));
 }
 
+/*
+
 const readDirFiles = (path) =>{
     return new Promise((resolve,reject)=>{
-        fs__WEBPACK_IMPORTED_MODULE_0___default().readdir(path,(err,files)=>{
+        fs.readdir(path,(err,files)=>{
             if(err)reject(err);
             resolve(files);
         })
     });
 }
 
-/*
 const loadJsx = async(jsxFolder) =>{
     const parts = await readDirFiles(jsxFolder).catch(e=>console.log(e));
     const jsxes = parts.filter(f => path.extname(f) === ".jsx");
@@ -44255,7 +44259,6 @@ const reload = () =>{
 }
 
 const init = async() =>{
-    reload();
     csInterface.evalScript(`$.evalFile("${extensionRoot}json2.js")`);//json2読み込み
     //await loadJsx(jsxParts);
     //await loadJsx(polyFillFolder);

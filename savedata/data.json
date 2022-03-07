@@ -1,1 +1,1 @@
-[{"event":"AI Art Selection Changed Notifier","type":"action","dispatch":{"set":"初期設定アクション","action":"不透明度60（選択範囲）"},"checked":false}]
+[{"event":"AI Document Ruler Unit Changed Notifier","type":"action","dispatch":{"set":"rotate","action":"rotate90"},"checked":true}]
