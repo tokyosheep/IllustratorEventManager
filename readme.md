@@ -47,4 +47,4 @@ I can't guarantee stable condition on the Extension.
 Adobe distributes this plugin.
 but I'm not sure how long Adobe supports this plugin.
 and this Extension works based on the plugin.
-if Adobe stop to support this plugin . it won't work and I need alternative method.
+if Adobe stop to support this plugin . it won't work and I'll need alternative method.
