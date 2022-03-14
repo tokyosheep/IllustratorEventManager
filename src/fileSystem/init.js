@@ -4,7 +4,8 @@ export const csInterface = new CSInterface();
 export const extensionId = csInterface.getExtensionID();
 export const extFolder = csInterface.getSystemPath(SystemPath.EXTENSION);
 export const extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) +`/jsx/`;
-export const saveJsonRoot = csInterface.getSystemPath(SystemPath.EXTENSION) +`/savedata/`;
+export const saveJsonRoot = csInterface.getSystemPath(SystemPath.USER_DATA) +`/`;
+console.log(saveJsonRoot);
 
 const dir_home = process.env[process.platform == `win32` ? `USERPROFILE` : `HOME`];
 export const dirDesktop = path.join(dir_home, `Desktop`);//デスクトップパス
@@ -44,6 +45,7 @@ export const reload = () =>{
 }
 
 export const init = async() =>{
+    // reload();
     csInterface.evalScript(`$.evalFile("${extensionRoot}json2.js")`);//json2読み込み
     //await loadJsx(jsxParts);
     //await loadJsx(polyFillFolder);

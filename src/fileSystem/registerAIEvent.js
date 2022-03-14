@@ -1,12 +1,12 @@
 import { callAction, callJsx } from './callJsx';
-import { writeDebugData } from './init';
 
 export const aiEvents = Object.values(AIEvent);
+
+export const aiEventTarget = AIEventAdapter.getInstance;
 
 const setMethod = async eventData => {
   removeAiEvent(eventData);
   if(eventData.type === 'action'){
-      // await writeDebugData({func:'callAction', arg: eventData.dispatch});
       await callAction({func:'callAction', arg: eventData.dispatch});
   }else{
       await callJsx(eventData.dispatch.path);

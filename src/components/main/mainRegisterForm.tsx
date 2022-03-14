@@ -7,10 +7,19 @@ import { selectEvent } from '../../redux/features/registered/registerFormSlice';
 import { Selector } from '../parts/Selector';
 import { CommonTitle } from '../../styles/titles';
 import { StdButtton } from '../parts/buttons';
+import { IoIosSearch } from 'react-icons/io';
 import ProcessArea from './processArea/processArea';
 import { MainContainer } from '../../styles/containers';
 import { useAppSelector, useAppDispatch } from '../../redux/app/hooks';
+import { setVisible } from '../../redux/features/searchBox/searchVisibleSlice';
 const { RegisterFormContainer } = MainContainer;
+
+const SearchIcon = styled(IoIosSearch)`
+  fill:#fff;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+`;
 
 const EventWrapper = styled.div`
   width: 100%;
@@ -70,9 +79,10 @@ const MainRegisterForm = () => {
   return (
       <>
       <RegisterFormContainer>
-        <ListningEvent />
+        <ListningEvent/>
         <EventWrapper>
           <CommonTitle>Illustrator Event</CommonTitle>
+          <SearchIcon onClick={() => dispatch(setVisible(true))} ></SearchIcon>
           <Selector func={handleEventValue} options={events} value={registerForm.event} />
         </EventWrapper>
         <ProcessArea />

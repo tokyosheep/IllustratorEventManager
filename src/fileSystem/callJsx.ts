@@ -2,9 +2,9 @@ import { SendHostScript } from './connectHostScript';
 import { ActionSet } from '../redux/features/registered/registeredSlice';
 import { justCallJsxOutside } from './init';
 
-export const callAction:(arg:ActionSet)=>Promise<void> = async (arg) => {
+export const callAction:(prop:{ arg:ActionSet, func:string })=>Promise<void> = async (prop) => {
   const connect = new SendHostScript();
-  const r = await connect.callHostScript(arg);
+  const r = await connect.callHostScript(prop);
   console.log(r);
 }
 

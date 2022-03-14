@@ -515,6 +515,30 @@ object-assign
  */
 
 /**
+ * Returns a string value for the lightened color.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: lighten(0.2, '#CCCD64'),
+ *   background: lighten('0.2', 'rgba(204,205,100,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${lighten(0.2, '#FFCD64')};
+ *   background: ${lighten('0.2', 'rgba(204,205,100,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "#e5e6b1";
+ *   background: "rgba(229,230,177,0.7)";
+ * }
+ */
+
+/**
  * Returns an HslColor or HslaColor object. This utility function is only useful
  * if want to extract a color component. With the color util `toColorString` you
  * can convert a HslColor or HslaColor object back to a string.
@@ -560,12 +584,6 @@ object-assign
  *
  * @returns {Function} A reducer function that invokes every reducer inside the
  * passed object, and builds a state object with the same shape.
- */
-
-/**
- * register Illustrator event
- * @param {eventData}
- * @type {event: string,type: ProcessType,dispatch: ActionSet | ScriptObj}
  */
 
 /** @class */
@@ -721,13 +739,17 @@ object-assign
 
 // CONCATENATED MODULE: ./src/components/main/mainRegisterForm.tsx
 
+// CONCATENATED MODULE: ./src/components/mainSwitch/useEvent/useEvent.tsx
+
 // CONCATENATED MODULE: ./src/components/nav/navButtons.tsx
 
 // CONCATENATED MODULE: ./src/components/nav/scriptWrapper.tsx
 
-// CONCATENATED MODULE: ./src/components/parts/buttons.tsx
+// CONCATENATED MODULE: ./src/components/parts/Selector.tsx
 
 // CONCATENATED MODULE: ./src/components/parts/detailSideBar.tsx
+
+// CONCATENATED MODULE: ./src/components/parts/radio.tsx
 
 // CONCATENATED MODULE: ./src/components/registeredArea/registeredList.tsx
 
@@ -758,6 +780,10 @@ object-assign
 // CONCATENATED MODULE: ./src/redux/features/registered/registerFormSlice.ts
 
 // CONCATENATED MODULE: ./src/redux/features/registered/registeredSlice.ts
+
+// CONCATENATED MODULE: ./src/redux/features/searchBox/searchVisibleSlice.ts
+
+// CONCATENATED MODULE: ./src/styles/containers.ts
 
 // CONCATENATED MODULE: ./src/styles/mixin.ts
 
@@ -955,8 +981,6 @@ object-assign
 
 // available, otherwise a store update may happen between render and the effect,
 
-// await writeDebugData({func:'callAction', arg: eventData.dispatch});
-
 // blue case
 
 // call invoke immediately, without waiting on a callback to fire,
@@ -1025,6 +1049,8 @@ object-assign
 
 // if a Content Security Policy forbids using Function, but in that case
 
+// import { writeDebugData } from '../../../fileSystem/init';
+
 // important to get this right, even though it requires care.
 
 // in case runtime.js accidentally runs in strict mode, in modern engines
@@ -1090,6 +1116,8 @@ object-assign
 // reducer returns their initial state. This effectively populates
 
 // regeneratorRuntime in the outer scope, which allows this module to be
+
+// reload();
 
 // result, either by returning a { value, done } result from the
 

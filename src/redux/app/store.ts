@@ -7,6 +7,7 @@ import disableSlice from '../features/dispatchTrigger/disableSlice';
 import registeredSlice from '../features/registered/registeredSlice';
 import registerFormSlice from '../features/registered/registerFormSlice';
 import detailBarSlice from '../features/detailBar/detailBarSlice';
+import searchBoxVisibleSlice from '../features/searchBox/searchVisibleSlice';
 
 export const store = configureStore({
   reducer: {
@@ -17,7 +18,8 @@ export const store = configureStore({
     disablePanel: disableSlice,
     registeredData: registeredSlice,
     registerForm: registerFormSlice,
-    detailBar: detailBarSlice
+    detailBar: detailBarSlice,
+    searchBoxVisible: searchBoxVisibleSlice
   }
 });
 

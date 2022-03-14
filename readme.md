@@ -37,10 +37,15 @@ plugin has tons of events. but actually I don't grasp all of events. but you can
 as I said still I don't grasp all of events so before use it , so I definitely recommend to test before use for your actual work.
 I can't guarantee stable condition on the Extension.
 
-
 ### download Extension
 
-[download zxp file here](https://kawano-shuji.com/strage/IllustratorEventManager_0_9.zxp)
+**update version 0.9.1**  
+fixed bug that Extension detectes event even while action or script is processing.
+added search box to find event.
+
+[ver 0.9.0](https://kawano-shuji.com/strage/IllustratorEventManager_0_9.zxp)
+
+new [ver 0.9.1](https://kawano-shuji.com/strage/IllustratorEventManager_0_9_1.zxp)
 
 ### about more AIHostAdapter plugin 
 
