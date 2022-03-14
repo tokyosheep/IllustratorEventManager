@@ -40,7 +40,7 @@ I can't guarantee stable condition on the Extension.
 ### download Extension
 
 **update version 0.9.1**
-I found bug that Extension detectes event even while action or script is processing.
+I fixed bug that Extension detectes event even while action or script is processing.
 added search box to find event.
 
 [ver 0.9.0](https://kawano-shuji.com/strage/IllustratorEventManager_0_9.zxp)
