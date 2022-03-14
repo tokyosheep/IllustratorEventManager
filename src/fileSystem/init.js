@@ -15,7 +15,7 @@ const polyFillFolder = `${extensionRoot}/polyFill`;
 */
 
 export const hostAppPath = csInterface.getSystemPath(SystemPath.HOST_APPLICATION);
-const debug = false;
+const debug = true;
 
 export const writeDebugData = obj =>{
     if(!debug)return;
@@ -44,6 +44,7 @@ export const reload = () =>{
 }
 
 export const init = async() =>{
+    reload();
     csInterface.evalScript(`$.evalFile("${extensionRoot}json2.js")`);//json2読み込み
     //await loadJsx(jsxParts);
     //await loadJsx(polyFillFolder);

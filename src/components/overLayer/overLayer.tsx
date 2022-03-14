@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useAppSelector } from '../../redux/app/hooks';
 
-const OverLayer = styled.div<{visible:boolean}>`
+export const OverLayer = styled.div<{visible:boolean}>`
   z-index: 25;
   position: fixed;
   top: 0;

@@ -5,6 +5,7 @@ import { init } from '../fileSystem/init';
 import { getActionsFromJSX } from '../fileSystem/getAction';
 import { loadInitJsx } from '../fileSystem/loadScripts';
 import CoverLayer from '../components/overLayer/overLayer';
+import EventSeachBox from '../components/searchBox/eventSeachBox';
 import Header from '../components/header/header';
 import MainSwitch from '../components/mainSwitch/mainSwitch';
 import RegisteredList from '../components/registeredArea/registeredList';
@@ -44,6 +45,7 @@ const Layout = () => {
   }, []);
   return (
     <>
+      <EventSeachBox />
       <CoverLayer />
       <BarDisplay />
       <Container>

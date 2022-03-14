@@ -17,14 +17,8 @@ var obj = {"func":"callAction","arg":{"set":"初期設定アクション","actio
 hostScript(obj);
 */
 /*
-var obj = {
-    func: 'callAction',
-    arg: {
-            action: '不透明度60（選択範囲） ',
-            set: '初期設定アクション'
-        }
-    }
-}
+var obj = {"func":"callAction","arg":{"set":"初期設定アクション","action":"不透明度60（選択範囲）"}}
+hostScript(obj);
 */
 function callAction(arg){
     try{
