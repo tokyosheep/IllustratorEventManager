@@ -32,8 +32,8 @@ const registerEvent:EventFunc = (eventData, register, removes) => {
   eventData.forEach(data => {
     aiEventTarget().addEventListener(
       data.event,
-      () => {
-        setMethod(data, eventData, register, removes);
+      async () => {
+        await setMethod(data, eventData, register, removes);
       }
     );
   })
@@ -43,8 +43,8 @@ const removeEventData:EventFunc = (eventData, register, removes) => {
   eventData.forEach(data => {
     aiEventTarget().removeEventListener(
       data.event,
-      () => {
-        setMethod(data, eventData, register, removes);
+      async () => {
+        await setMethod(data, eventData, register, removes);
       }
     );
   })

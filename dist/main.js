@@ -2952,17 +2952,41 @@ var setMethod = /*#__PURE__*/function () {
 
 var registerEvent = function registerEvent(eventData, register, removes) {
   eventData.forEach(function (data) {
-    (0,_fileSystem_registerAIEvent__WEBPACK_IMPORTED_MODULE_3__.aiEventTarget)().addEventListener(data.event, function () {
-      setMethod(data, eventData, register, removes);
-    });
+    (0,_fileSystem_registerAIEvent__WEBPACK_IMPORTED_MODULE_3__.aiEventTarget)().addEventListener(data.event, /*#__PURE__*/_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return setMethod(data, eventData, register, removes);
+
+            case 2:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    })));
   });
 };
 
 var removeEventData = function removeEventData(eventData, register, removes) {
   eventData.forEach(function (data) {
-    (0,_fileSystem_registerAIEvent__WEBPACK_IMPORTED_MODULE_3__.aiEventTarget)().removeEventListener(data.event, function () {
-      setMethod(data, eventData, register, removes);
-    });
+    (0,_fileSystem_registerAIEvent__WEBPACK_IMPORTED_MODULE_3__.aiEventTarget)().removeEventListener(data.event, /*#__PURE__*/_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee3() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return setMethod(data, eventData, register, removes);
+
+            case 2:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    })));
   });
 };
 
