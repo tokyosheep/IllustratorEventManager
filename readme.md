@@ -1,6 +1,11 @@
 # IllustratorEventManager
 
-[japanese explanation is here](https://kawano-shuji.com/justdiary/2022/03/08/illustrator-extenion-illustratoreventmanager/)
+**Notice**  
+Since Illustrator updated 30.3, AIHostAdapter plugin has been intalled by default.
+You don't need to install the plugin for the application 30.3 or later.
+
+[japanese explanation is here](https://kawano-shuji.com/justdiary/2022/03/08/illustrator-extenion-illustratoreventmanager/)  
+[Additional information for AIHostAdapter plugin](https://kawano-shuji.com/justdiary/2026/05/24/update-news/)
 
 I developed Extension to managemnt event on Illustrator like Photoshop script event manager.
 I refered to Photoshop event manager. so this is similar with it.
